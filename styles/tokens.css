@@ -1,0 +1,27 @@
+/*
+ * Tokens de diseño de Furiassi Arquitectos — paleta y tipografía del
+ * prototipo aprobado por el cliente (referencia.html). No usar los colores
+ * default de Tailwind (gray-500, amber-600, etc.): todo color sale de acá.
+ * Las variables --font-display / --font-body / --font-mono las define
+ * next/font/local en src/app/fonts/index.ts.
+ */
+:root {
+  /* Paleta */
+  --cream: #f5f1eb;
+  --cream-2: #ede8e0;
+  --cream-3: #e3ddd3;
+  --stone: #b5a898;
+  --taupe: #7a6e64;
+  --espresso: #2a2318;
+  --black: #131009;
+  --gold: #a8884a;
+  --gold-l: #c4a86a;
+  --sage: #7a9488;
+  --sage-l: #a8bfb5;
+
+  /* Espaciado */
+  --max-w: 1280px;
+  --pad-x: clamp(24px, 6vw, 96px);
+  --nav-h: 72px;
+  --nav-h-scrolled: 60px;
+}

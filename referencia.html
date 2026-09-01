@@ -1,0 +1,2189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Furiassi Arquitectos | Arquitectura Residencial Premium en Mendoza</title>
+<meta name="description" content="Estudio de arquitectura residencial en Mendoza. Diseño personalizado, construcción llave en mano y por etapas con foco en sustentabilidad, calidad de obra y estética innovadora.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   DESIGN SYSTEM — FURIASSI ARQUITECTOS
+   Estética: Luxury Minimal Architecture
+   Dirección: Blanco cálido dominante, tierra y negro como acentos,
+   tipografía editorial serif + geométrica moderna sin serifa.
+   La página respira. El espacio negativo ES el lujo.
+   ============================================================ */
+
+:root {
+  /* Paleta */
+  --cream:    #f5f1eb;   /* fondo principal — blanco cálido, no blanco frío */
+  --cream-2:  #ede8e0;   /* superficie secundaria */
+  --cream-3:  #e3ddd3;   /* bordes suaves */
+  --stone:    #b5a898;   /* gris tierra medio */
+  --taupe:    #7a6e64;   /* texto secundario */
+  --espresso: #2a2318;   /* texto principal */
+  --black:    #131009;   /* negro casi absoluto */
+  --gold:     #a8884a;   /* acento dorado cálido */
+  --gold-l:   #c4a86a;   /* dorado claro */
+  --sage:     #7a9488;   /* verde salvia — sustentabilidad */
+  --sage-l:   #a8bfb5;   /* sage claro */
+
+  /* Tipografía */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'Outfit', sans-serif;
+  --font-mono:    'DM Mono', monospace;
+
+  /* Espaciado */
+  --max-w: 1280px;
+  --pad-x: clamp(24px, 6vw, 96px);
+}
+
+/* RESET */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--espresso);
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* Grain overlay — textura sutil sobre toda la página */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.025;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+
+/* ============================================================
+   UTILITY
+   ============================================================ */
+.container {
+  width: 100%;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding-left: var(--pad-x);
+  padding-right: var(--pad-x);
+}
+
+.section-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.section-eyebrow::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+}
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 0 var(--pad-x);
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(245, 241, 235, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(181,168,152,0.25);
+  transition: all 0.3s ease;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.nav-logo-mark {
+  width: 36px; height: 36px;
+  border: 1.5px solid var(--espresso);
+  display: flex; align-items: center; justify-content: center;
+}
+
+.nav-logo-mark svg {
+  width: 16px; height: 16px;
+  stroke: var(--espresso);
+  fill: none;
+  stroke-width: 1.5;
+}
+
+.nav-logo-text {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--espresso);
+  line-height: 1;
+}
+
+.nav-logo-text span {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--taupe);
+  margin-top: 3px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--taupe);
+  transition: color 0.2s;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px; left: 0; right: 100%;
+  height: 1px;
+  background: var(--gold);
+  transition: right 0.3s ease;
+}
+
+.nav-links a:hover { color: var(--espresso); }
+.nav-links a:hover::after { right: 0; }
+
+.nav-cta {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cream);
+  background: var(--espresso);
+  padding: 11px 24px;
+  transition: all 0.25s;
+}
+
+.nav-cta:hover {
+  background: var(--gold);
+  color: var(--cream);
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+#inicio {
+  min-height: 100vh;
+  padding-top: 72px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+}
+
+.hero-left {
+  padding: clamp(60px, 8vw, 120px) var(--pad-x) clamp(60px, 8vw, 120px) var(--pad-x);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-right {
+  position: relative;
+  overflow: hidden;
+  background: var(--espresso);
+}
+
+.hero-right-img {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0.55;
+  transition: transform 8s ease;
+}
+
+.hero-right:hover .hero-right-img {
+  transform: scale(1.04);
+}
+
+/* Overlay arquitectónico en la imagen */
+.hero-right-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(42,35,24,0.4) 0%, transparent 60%);
+}
+
+/* Número grande decorativo */
+.hero-right-num {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  font-family: var(--font-display);
+  font-size: 120px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.08);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero-right-badge {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  background: rgba(245,241,235,0.1);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(245,241,235,0.2);
+  padding: 14px 20px;
+}
+
+.hero-right-badge .num {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 400;
+  color: #fff;
+  line-height: 1;
+}
+
+.hero-right-badge .label {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-top: 4px;
+}
+
+/* Hero text */
+.hero-kicker {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.2s forwards;
+}
+
+.hero-kicker::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.hero-h1 {
+  font-family: var(--font-display);
+  font-size: clamp(44px, 5.5vw, 76px);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--espresso);
+  margin-bottom: 28px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.4s forwards;
+}
+
+.hero-h1 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.hero-sub {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--taupe);
+  max-width: 440px;
+  line-height: 1.75;
+  margin-bottom: 44px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.55s forwards;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 64px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.7s forwards;
+}
+
+.btn-primary {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cream);
+  background: var(--espresso);
+  padding: 16px 36px;
+  transition: all 0.25s;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-primary:hover { background: var(--gold); }
+
+.btn-primary svg {
+  width: 14px; height: 14px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  transition: transform 0.2s;
+}
+
+.btn-primary:hover svg { transform: translateX(3px); }
+
+.btn-ghost {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--taupe);
+  position: relative;
+  padding-bottom: 3px;
+  border-bottom: 1px solid var(--cream-3);
+  transition: all 0.2s;
+}
+
+.btn-ghost:hover { color: var(--espresso); border-bottom-color: var(--espresso); }
+
+/* Hero stats */
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  padding-top: 40px;
+  border-top: 1px solid var(--cream-3);
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.85s forwards;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 400;
+  color: var(--espresso);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--stone);
+  margin-top: 5px;
+}
+
+/* ============================================================
+   DIFERENCIALES
+   ============================================================ */
+#beneficios {
+  padding: clamp(80px, 10vw, 140px) 0;
+  background: var(--espresso);
+  color: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Línea decorativa */
+#beneficios::before {
+  content: '';
+  position: absolute;
+  top: 0; left: var(--pad-x);
+  width: 1px; height: 100%;
+  background: rgba(181,168,152,0.1);
+}
+
+.beneficios-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: end;
+  margin-bottom: 80px;
+}
+
+.beneficios-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 4vw, 58px);
+  font-weight: 300;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.beneficios-h2 em { font-style: italic; color: var(--gold-l); }
+
+.beneficios-sub {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--stone);
+  line-height: 1.75;
+  max-width: 380px;
+  align-self: end;
+}
+
+.beneficios-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(181,168,152,0.12);
+}
+
+.beneficio-item {
+  background: var(--espresso);
+  padding: 40px 32px;
+  transition: background 0.3s;
+  cursor: default;
+}
+
+.beneficio-item:hover {
+  background: rgba(255,255,255,0.03);
+}
+
+.beneficio-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--gold-l);
+  letter-spacing: 0.15em;
+  margin-bottom: 28px;
+}
+
+.beneficio-icon {
+  width: 40px; height: 40px;
+  margin-bottom: 20px;
+  stroke: var(--gold-l);
+  fill: none;
+  stroke-width: 1;
+}
+
+.beneficio-h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--cream);
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.beneficio-p {
+  font-size: 13.5px;
+  font-weight: 300;
+  color: var(--stone);
+  line-height: 1.7;
+}
+
+/* ============================================================
+   SERVICIOS
+   ============================================================ */
+#servicios {
+  padding: clamp(80px, 10vw, 140px) 0;
+  background: var(--cream);
+}
+
+.servicios-header {
+  max-width: 640px;
+  margin-bottom: 72px;
+}
+
+.servicios-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 300;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 20px;
+}
+
+.servicios-sub {
+  font-size: 15px;
+  color: var(--taupe);
+  font-weight: 300;
+}
+
+.servicios-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--cream-3);
+  border: 1px solid var(--cream-3);
+}
+
+.servicio-card {
+  background: var(--cream);
+  padding: 44px 36px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.servicio-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.servicio-card:hover { background: var(--cream-2); }
+.servicio-card:hover::after { transform: scaleX(1); }
+
+.servicio-num {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--stone);
+  letter-spacing: 0.2em;
+  margin-bottom: 24px;
+}
+
+.servicio-h3 {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.servicio-tagline {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  margin-bottom: 16px;
+  font-family: var(--font-mono);
+}
+
+.servicio-p {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--taupe);
+  line-height: 1.7;
+}
+
+.servicio-tag-new {
+  position: absolute;
+  top: 20px; right: 20px;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--sage);
+  background: rgba(122,148,136,0.1);
+  padding: 3px 8px;
+  border: 1px solid rgba(122,148,136,0.25);
+}
+
+/* ============================================================
+   SOBRE NOSOTROS
+   ============================================================ */
+#sobre {
+  padding: clamp(80px, 10vw, 140px) 0;
+  background: var(--cream-2);
+}
+
+.sobre-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(48px, 7vw, 100px);
+  align-items: center;
+}
+
+.sobre-img-wrap {
+  position: relative;
+}
+
+.sobre-img {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  background: var(--cream-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Placeholder para imagen */
+.sobre-img-placeholder {
+  width: 100%;
+  aspect-ratio: 4/5;
+  background: linear-gradient(135deg, var(--espresso) 0%, #4a3f32 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.sobre-img-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 40px,
+    rgba(255,255,255,0.015) 40px,
+    rgba(255,255,255,0.015) 41px
+  );
+}
+
+.sobre-img-text {
+  font-family: var(--font-display);
+  font-size: 80px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.06);
+  user-select: none;
+}
+
+/* Floating stat card */
+.sobre-stat-card {
+  position: absolute;
+  bottom: -24px;
+  right: -24px;
+  background: var(--gold);
+  padding: 24px 28px;
+  min-width: 160px;
+}
+
+.sobre-stat-card .num {
+  font-family: var(--font-display);
+  font-size: 44px;
+  font-weight: 300;
+  color: var(--cream);
+  line-height: 1;
+}
+
+.sobre-stat-card .label {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(245,241,235,0.75);
+  margin-top: 6px;
+  font-weight: 400;
+}
+
+/* Text side */
+.sobre-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 3.5vw, 50px);
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 24px;
+}
+
+.sobre-h2 em { font-style: italic; color: var(--gold); }
+
+.sobre-p {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--taupe);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.sobre-p:last-of-type { margin-bottom: 36px; }
+
+.sobre-valores {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 36px;
+}
+
+.valor-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.valor-dot {
+  width: 4px; height: 4px;
+  background: var(--gold);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 9px;
+}
+
+.valor-text {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--espresso);
+}
+
+/* ============================================================
+   OBRAS / PORTFOLIO
+   ============================================================ */
+#obras {
+  padding: clamp(80px, 10vw, 140px) 0;
+  background: var(--cream);
+}
+
+.obras-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 56px;
+  gap: 40px;
+}
+
+.obras-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(34px, 4vw, 52px);
+  font-weight: 300;
+  line-height: 1.15;
+  max-width: 480px;
+}
+
+.obras-sub {
+  font-size: 14px;
+  color: var(--taupe);
+  max-width: 280px;
+  text-align: right;
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+/* Portfolio masonry-style */
+.obras-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  gap: 12px;
+}
+
+.obra-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--cream-3);
+}
+
+.obra-card:nth-child(1) { grid-column: span 7; grid-row: span 2; aspect-ratio: 7/5; }
+.obra-card:nth-child(2) { grid-column: span 5; aspect-ratio: 5/3; }
+.obra-card:nth-child(3) { grid-column: span 5; aspect-ratio: 5/3; }
+.obra-card:nth-child(4) { grid-column: span 4; aspect-ratio: 4/3; }
+.obra-card:nth-child(5) { grid-column: span 4; aspect-ratio: 4/3; }
+.obra-card:nth-child(6) { grid-column: span 4; aspect-ratio: 4/3; }
+
+/* Placeholder backgrounds para las obras */
+.obra-card:nth-child(1) .obra-placeholder { background: linear-gradient(135deg, #2a2318 0%, #4a3f32 100%); }
+.obra-card:nth-child(2) .obra-placeholder { background: linear-gradient(135deg, #3a3228 0%, #5a4f40 100%); }
+.obra-card:nth-child(3) .obra-placeholder { background: linear-gradient(135deg, #4a4035 0%, #2e2820 100%); }
+.obra-card:nth-child(4) .obra-placeholder { background: linear-gradient(135deg, #2e2820 0%, #4a4035 100%); }
+.obra-card:nth-child(5) .obra-placeholder { background: linear-gradient(135deg, #38302a 0%, #5a5045 100%); }
+.obra-card:nth-child(6) .obra-placeholder { background: linear-gradient(135deg, #48403a 0%, #2a2318 100%); }
+
+.obra-placeholder {
+  width: 100%; height: 100%;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.obra-placeholder-icon {
+  font-family: var(--font-display);
+  font-size: 40px;
+  color: rgba(255,255,255,0.06);
+}
+
+.obra-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(19,16,9,0.9) 0%, rgba(19,16,9,0) 60%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 28px;
+}
+
+.obra-card:hover .obra-overlay { opacity: 1; }
+
+.obra-title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--cream);
+  margin-bottom: 4px;
+}
+
+.obra-meta {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(245,241,235,0.55);
+  font-family: var(--font-mono);
+}
+
+.obra-arrow {
+  position: absolute;
+  top: 24px; right: 24px;
+  width: 36px; height: 36px;
+  border: 1px solid rgba(245,241,235,0.3);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: all 0.3s ease;
+}
+
+.obra-card:hover .obra-arrow {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.obra-arrow svg {
+  width: 14px; height: 14px;
+  stroke: var(--cream);
+  fill: none;
+  stroke-width: 2;
+}
+
+/* ============================================================
+   PROCESO
+   ============================================================ */
+#proceso {
+  padding: clamp(80px, 10vw, 140px) 0;
+  background: var(--espresso);
+  color: var(--cream);
+}
+
+.proceso-header {
+  max-width: 560px;
+  margin-bottom: 80px;
+}
+
+.proceso-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(34px, 4vw, 52px);
+  font-weight: 300;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+}
+
+.proceso-sub {
+  font-size: 15px;
+  color: var(--stone);
+  font-weight: 300;
+}
+
+.proceso-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  position: relative;
+}
+
+/* Línea horizontal entre pasos */
+.proceso-steps::before {
+  content: '';
+  position: absolute;
+  top: 28px;
+  left: calc(var(--pad-x) * 0 + 28px);
+  right: 0;
+  height: 1px;
+  background: rgba(181,168,152,0.15);
+}
+
+.proceso-step {
+  padding: 0 32px 48px 0;
+  position: relative;
+}
+
+.proceso-step-num {
+  width: 56px; height: 56px;
+  border: 1px solid rgba(168,136,74,0.4);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--gold-l);
+  margin-bottom: 32px;
+  position: relative;
+  background: var(--espresso);
+  z-index: 1;
+  transition: all 0.3s;
+}
+
+.proceso-step:hover .proceso-step-num {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--cream);
+}
+
+.proceso-step-h3 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--cream);
+  margin-bottom: 10px;
+}
+
+.proceso-step-p {
+  font-size: 13.5px;
+  font-weight: 300;
+  color: var(--stone);
+  line-height: 1.7;
+}
+
+/* ============================================================
+   RESEÑAS
+   ============================================================ */
+#resenas {
+  padding: clamp(80px, 10vw, 140px) 0;
+  background: var(--cream);
+}
+
+.resenas-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.resenas-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(34px, 4vw, 52px);
+  font-weight: 300;
+  line-height: 1.15;
+}
+
+.resenas-rating {
+  text-align: right;
+}
+
+.resenas-rating .big-num {
+  font-family: var(--font-display);
+  font-size: 56px;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.resenas-rating .stars {
+  color: var(--gold);
+  font-size: 14px;
+  letter-spacing: 3px;
+  margin: 6px 0 4px;
+}
+
+.resenas-rating .count {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--stone);
+  letter-spacing: 0.12em;
+}
+
+.resenas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.resena-card {
+  background: var(--cream-2);
+  border: 1px solid var(--cream-3);
+  padding: 32px;
+  transition: all 0.25s;
+}
+
+.resena-card:hover {
+  border-color: var(--stone);
+  transform: translateY(-3px);
+}
+
+.resena-stars {
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: 3px;
+  margin-bottom: 18px;
+}
+
+.resena-text {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.65;
+  color: var(--espresso);
+  margin-bottom: 24px;
+}
+
+.resena-text::before { content: '\201C'; }
+.resena-text::after  { content: '\201D'; }
+
+.resena-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.resena-avatar {
+  width: 36px; height: 36px;
+  background: var(--cream-3);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-size: 16px;
+  color: var(--taupe);
+}
+
+.resena-author-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--espresso);
+}
+
+.resena-author-loc {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--stone);
+  letter-spacing: 0.1em;
+  margin-top: 2px;
+}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+#faq {
+  padding: clamp(80px, 10vw, 140px) 0;
+  background: var(--cream-2);
+}
+
+.faq-inner {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: clamp(48px, 7vw, 100px);
+  align-items: start;
+}
+
+.faq-left {
+  position: sticky;
+  top: 100px;
+}
+
+.faq-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 3.5vw, 48px);
+  font-weight: 300;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.faq-sub {
+  font-size: 14px;
+  color: var(--taupe);
+  font-weight: 300;
+  line-height: 1.75;
+  margin-bottom: 36px;
+}
+
+.faq-cta-link {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap 0.2s;
+}
+
+.faq-cta-link:hover { gap: 14px; }
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.faq-item {
+  background: var(--cream);
+  border: 1px solid var(--cream-3);
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.faq-item.open { border-color: var(--stone); }
+
+.faq-q {
+  width: 100%;
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--espresso);
+  line-height: 1.5;
+  transition: background 0.2s;
+}
+
+.faq-q:hover { background: var(--cream-2); }
+
+.faq-q-icon {
+  flex-shrink: 0;
+  width: 20px; height: 20px;
+  position: relative;
+  transition: transform 0.3s;
+}
+
+.faq-q-icon::before,
+.faq-q-icon::after {
+  content: '';
+  position: absolute;
+  background: var(--gold);
+  border-radius: 1px;
+  transition: all 0.3s;
+}
+
+.faq-q-icon::before { width: 100%; height: 1px; top: 50%; left: 0; transform: translateY(-50%); }
+.faq-q-icon::after  { width: 1px; height: 100%; left: 50%; top: 0; transform: translateX(-50%); }
+
+.faq-item.open .faq-q-icon::after { opacity: 0; transform: translateX(-50%) rotate(90deg); }
+
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+}
+
+.faq-item.open .faq-a { max-height: 300px; }
+
+.faq-a-inner {
+  padding: 0 28px 24px;
+  font-size: 14.5px;
+  font-weight: 300;
+  color: var(--taupe);
+  line-height: 1.75;
+  border-top: 1px solid var(--cream-3);
+  padding-top: 20px;
+}
+
+.faq-a-inner strong { color: var(--espresso); font-weight: 500; }
+
+/* ============================================================
+   CONTACTO / CTA FINAL
+   ============================================================ */
+#contacto {
+  padding: clamp(80px, 10vw, 140px) 0;
+  background: var(--espresso);
+  color: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Fondo decorativo */
+#contacto::before {
+  content: 'FA';
+  position: absolute;
+  right: var(--pad-x);
+  bottom: -40px;
+  font-family: var(--font-display);
+  font-size: 280px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.02);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.contacto-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(60px, 8vw, 120px);
+  align-items: start;
+}
+
+.contacto-left .contacto-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 4.5vw, 62px);
+  font-weight: 300;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 20px;
+}
+
+.contacto-left .contacto-h2 em {
+  font-style: italic;
+  color: var(--gold-l);
+}
+
+.contacto-left .contacto-sub {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--stone);
+  line-height: 1.75;
+  margin-bottom: 48px;
+  max-width: 400px;
+}
+
+.contacto-data {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contacto-data-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.contacto-data-icon {
+  width: 36px; height: 36px;
+  border: 1px solid rgba(181,168,152,0.2);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.contacto-data-icon svg {
+  width: 14px; height: 14px;
+  stroke: var(--gold-l);
+  fill: none;
+  stroke-width: 1.5;
+}
+
+.contacto-data-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: var(--stone);
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+.contacto-data-value {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--cream);
+}
+
+.contacto-right {
+  padding-top: 8px;
+}
+
+.form-field {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 8px;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(181,168,152,0.15);
+  padding: 14px 18px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--cream);
+  outline: none;
+  transition: border-color 0.2s;
+  -webkit-appearance: none;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--stone);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  border-color: var(--gold-l);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-submit {
+  width: 100%;
+  padding: 18px;
+  background: var(--gold);
+  border: none;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cream);
+  cursor: pointer;
+  transition: all 0.25s;
+  margin-top: 8px;
+}
+
+.form-submit:hover {
+  background: var(--gold-l);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  background: var(--black);
+  color: var(--stone);
+  padding: 48px var(--pad-x);
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.footer-logo {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 400;
+  color: rgba(245,241,235,0.5);
+  letter-spacing: 0.04em;
+}
+
+.footer-copy {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+
+.footer-social {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-social a {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--stone);
+  transition: color 0.2s;
+}
+
+.footer-social a:hover { color: var(--gold-l); }
+
+/* ============================================================
+   ANIMACIONES
+   ============================================================ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.35s; }
+.reveal-delay-4 { transition-delay: 0.5s; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1024px) {
+  #inicio { grid-template-columns: 1fr; min-height: auto; }
+  .hero-right { height: 55vw; min-height: 340px; }
+  .hero-left { padding: 60px var(--pad-x) 48px; }
+  .beneficios-grid { grid-template-columns: repeat(2, 1fr); }
+  .servicios-grid { grid-template-columns: repeat(2, 1fr); }
+  .proceso-steps { grid-template-columns: repeat(2, 1fr); gap: 40px 0; }
+  .proceso-steps::before { display: none; }
+  .resenas-grid { grid-template-columns: repeat(2, 1fr); }
+  .faq-inner { grid-template-columns: 1fr; }
+  .faq-left { position: static; }
+  .contacto-inner { grid-template-columns: 1fr; }
+  .sobre-grid { grid-template-columns: 1fr; }
+  .sobre-img-placeholder { aspect-ratio: 16/7; }
+  .sobre-stat-card { bottom: -16px; right: -16px; }
+  .obras-grid { display: flex; flex-direction: column; gap: 12px; }
+  .obra-card { aspect-ratio: 16/8 !important; }
+  .beneficios-header { grid-template-columns: 1fr; gap: 24px; }
+}
+
+@media (max-width: 640px) {
+  .nav-links { display: none; }
+  .servicios-grid { grid-template-columns: 1fr; }
+  .beneficios-grid { grid-template-columns: 1fr; }
+  .resenas-grid { grid-template-columns: 1fr; }
+  .hero-stats { gap: 24px; }
+  .form-row { grid-template-columns: 1fr; }
+  .obras-header { flex-direction: column; align-items: flex-start; }
+  .obras-sub { text-align: left; }
+  .footer-inner { flex-direction: column; text-align: center; }
+  .sobre-valores { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ==================== NAV ==================== -->
+<nav>
+  <a href="#inicio" class="nav-logo">
+    <div class="nav-logo-mark">
+      <svg viewBox="0 0 20 20"><polygon points="10,2 18,18 2,18"/></svg>
+    </div>
+    <div class="nav-logo-text">
+      Furiassi Arquitectos
+      <span>Mendoza · Argentina</span>
+    </div>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#sobre">Nosotros</a></li>
+    <li><a href="#obras">Obras</a></li>
+    <li><a href="#resenas">Reseñas</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+
+  <a href="https://wa.me/5492613669285?text=Hola!%20Vi%20su%20web%20y%20quiero%20cotizar%20un%20proyecto." class="nav-cta">
+    Cotizá tu proyecto
+  </a>
+</nav>
+
+<!-- ==================== HERO ==================== -->
+<section id="inicio">
+  <div class="hero-left">
+    <div class="hero-kicker">Arquitectura residencial · Mendoza</div>
+
+    <h1 class="hero-h1">
+      Tu vivienda,<br>
+      <em>diseñada a medida</em><br>
+      y construida<br>con garantía.
+    </h1>
+
+    <p class="hero-sub">
+      Diseñamos y construimos viviendas personalizadas en Mendoza. Llave en mano o por etapas, con estética innovadora, criterios sustentables y calidad garantizada en cada proceso.
+    </p>
+
+    <div class="hero-actions">
+      <a href="https://wa.me/5492613669285?text=Hola!%20Vi%20su%20web%20y%20quiero%20cotizar%20un%20proyecto." class="btn-primary">
+        Comenzá tu proyecto
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <a href="#obras" class="btn-ghost">Ver obras</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">+12</div>
+        <div class="stat-label">Años de experiencia</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">+120</div>
+        <div class="stat-label">Obras ejecutadas</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">5.0</div>
+        <div class="stat-label">Calificación / 48 reseñas</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <!-- Acá va tu foto principal de obra -->
+    <div style="position:absolute;inset:0;background:linear-gradient(135deg,#2a2318 0%,#4a3f32 40%,#6a5f50 100%);display:flex;align-items:center;justify-content:center;">
+      <span style="font-family:'Cormorant Garamond',serif;font-size:clamp(80px,12vw,160px);font-weight:300;color:rgba(255,255,255,0.05);user-select:none;letter-spacing:-0.02em;">FA</span>
+    </div>
+    <div class="hero-right-overlay"></div>
+    <div class="hero-right-num">01</div>
+    <div class="hero-right-badge">
+      <div class="num">48</div>
+      <div class="label">Reseñas · 5.0 ★</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== BENEFICIOS ==================== -->
+<section id="beneficios">
+  <div class="container">
+    <div class="beneficios-header reveal">
+      <h2 class="beneficios-h2">
+        Cada proyecto,<br>
+        <em>único.</em><br>
+        Cada obra,<br>garantizada.
+      </h2>
+      <p class="beneficios-sub">
+        Diseño exclusivo, ejecución profesional y acompañamiento completo de principio a fin. Así trabajamos en cada vivienda que firmamos.
+      </p>
+    </div>
+
+    <div class="beneficios-grid">
+      <div class="beneficio-item reveal reveal-delay-1">
+        <div class="beneficio-num">01</div>
+        <svg class="beneficio-icon" viewBox="0 0 40 40">
+          <rect x="4" y="20" width="32" height="16" stroke-width="1"/>
+          <polyline points="4,20 20,6 36,20" stroke-width="1"/>
+          <line x1="16" y1="36" x2="16" y2="26" stroke-width="1"/>
+          <line x1="24" y1="36" x2="24" y2="26" stroke-width="1"/>
+        </svg>
+        <h3 class="beneficio-h3">Diseño exclusivo y personalizado</h3>
+        <p class="beneficio-p">Cada proyecto parte de cero. Tu vivienda refleja tu forma de vivir, tu estética y tu entorno. Sin soluciones prediseñadas.</p>
+      </div>
+
+      <div class="beneficio-item reveal reveal-delay-2">
+        <div class="beneficio-num">02</div>
+        <svg class="beneficio-icon" viewBox="0 0 40 40">
+          <circle cx="20" cy="20" r="14" stroke-width="1"/>
+          <polyline points="13,20 18,25 27,15" stroke-width="1.5"/>
+        </svg>
+        <h3 class="beneficio-h3">Calidad constructiva con garantía</h3>
+        <p class="beneficio-p">Materiales seleccionados, proveedores calificados y supervisión técnica continua. Garantizamos cada proceso y cada terminación.</p>
+      </div>
+
+      <div class="beneficio-item reveal reveal-delay-3">
+        <div class="beneficio-num">03</div>
+        <svg class="beneficio-icon" viewBox="0 0 40 40">
+          <path d="M20 6 C10 6 6 14 6 20 C6 28 12 34 20 34 C28 34 34 28 34 20" stroke-width="1"/>
+          <path d="M28 6 L28 14 L36 10 Z" stroke-width="1"/>
+          <line x1="20" y1="14" x2="20" y2="26" stroke-width="1"/>
+          <line x1="14" y1="20" x2="26" y2="20" stroke-width="1"/>
+        </svg>
+        <h3 class="beneficio-h3">Construcción sustentable</h3>
+        <p class="beneficio-p">Eficiencia energética, materiales de bajo impacto y sistemas bioclimáticos que reducen consumo y mejoran el confort a largo plazo.</p>
+      </div>
+
+      <div class="beneficio-item reveal reveal-delay-4">
+        <div class="beneficio-num">04</div>
+        <svg class="beneficio-icon" viewBox="0 0 40 40">
+          <line x1="8" y1="32" x2="8" y2="14" stroke-width="1"/>
+          <line x1="20" y1="32" x2="20" y2="8" stroke-width="1"/>
+          <line x1="32" y1="32" x2="32" y2="18" stroke-width="1"/>
+          <line x1="4" y1="32" x2="36" y2="32" stroke-width="1"/>
+          <polyline points="8,14 20,8 32,18" stroke-width="1"/>
+        </svg>
+        <h3 class="beneficio-h3">Un equipo, todo el proceso</h3>
+        <p class="beneficio-p">Del primer boceto a las llaves en mano. Sin tercerizar decisiones. Vos hablás con nosotros, siempre.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SERVICIOS ==================== -->
+<section id="servicios">
+  <div class="container">
+    <div class="servicios-header reveal">
+      <div class="section-eyebrow">Servicios</div>
+      <h2 class="servicios-h2">Diseñamos y construimos tu vivienda, de principio a fin.</h2>
+      <p class="servicios-sub">Desde el anteproyecto hasta la entrega. Cada servicio pensado para que tu proyecto avance con claridad, sin sorpresas.</p>
+    </div>
+
+    <div class="servicios-grid">
+      <div class="servicio-card reveal reveal-delay-1">
+        <div class="servicio-num">01</div>
+        <h3 class="servicio-h3">Arquitectura residencial personalizada</h3>
+        <div class="servicio-tagline">Cada vivienda, pensada para vos.</div>
+        <p class="servicio-p">Diseñamos tu hogar desde cero: planta, volumetría, materialidad y estética alineadas a tu estilo de vida. Sin planos tipo. Sin soluciones genéricas.</p>
+      </div>
+
+      <div class="servicio-card reveal reveal-delay-2">
+        <div class="servicio-num">02</div>
+        <h3 class="servicio-h3">Construcción llave en mano</h3>
+        <div class="servicio-tagline">Vos elegís, nosotros construimos.</div>
+        <p class="servicio-p">Materiales, mano de obra, cronograma y entrega. Un único equipo responsable desde el primer día hasta que recibís las llaves.</p>
+      </div>
+
+      <div class="servicio-card reveal reveal-delay-3">
+        <span class="servicio-tag-new">Destacado</span>
+        <div class="servicio-num">03</div>
+        <h3 class="servicio-h3">Construcción por etapas</h3>
+        <div class="servicio-tagline">Tu casa, a tu ritmo.</div>
+        <p class="servicio-p">Planificamos el proyecto completo y lo ejecutamos en fases. Cada etapa coherente con la siguiente — sin rehacer, sin desperdiciar presupuesto.</p>
+      </div>
+
+      <div class="servicio-card reveal reveal-delay-1">
+        <span class="servicio-tag-new">Sustentable</span>
+        <div class="servicio-num">04</div>
+        <h3 class="servicio-h3">Construcción sustentable</h3>
+        <div class="servicio-tagline">Menos consumo, más confort.</div>
+        <p class="servicio-p">Orientación bioclimática, aislación eficiente y sistemas de captación solar. Una vivienda que cuida el ambiente y reduce tus gastos.</p>
+      </div>
+
+      <div class="servicio-card reveal reveal-delay-2">
+        <div class="servicio-num">05</div>
+        <h3 class="servicio-h3">Dirección y supervisión de obra</h3>
+        <div class="servicio-tagline">Control técnico en cada etapa.</div>
+        <p class="servicio-p">Supervisión profesional continua para asegurar que la obra avance en tiempo, en presupuesto y con los estándares acordados.</p>
+      </div>
+
+      <div class="servicio-card reveal reveal-delay-3">
+        <div class="servicio-num">06</div>
+        <h3 class="servicio-h3">Documentación técnica y permisos</h3>
+        <div class="servicio-tagline">Planos ejecutivos y gestión municipal.</div>
+        <p class="servicio-p">Toda la documentación necesaria para construir: planos, memoria descriptiva, cómputos y gestión de permisos en Mendoza.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SOBRE ==================== -->
+<section id="sobre">
+  <div class="container">
+    <div class="sobre-grid">
+      <div class="sobre-img-wrap reveal">
+        <div class="sobre-img-placeholder">
+          <div class="sobre-img-text">FA</div>
+        </div>
+        <div class="sobre-stat-card">
+          <div class="num">+12</div>
+          <div class="label">Años de experiencia</div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-2">
+        <div class="section-eyebrow">Sobre nosotros</div>
+        <h2 class="sobre-h2">
+          Arquitectura que<br>
+          <em>refleja quién sos.</em>
+        </h2>
+
+        <p class="sobre-p">
+          Somos un estudio de arquitectura y construcción especializado en viviendas residenciales de alto valor en Mendoza. Con más de 12 años de experiencia, acompañamos a cada cliente desde la primera idea hasta la entrega de su hogar.
+        </p>
+
+        <p class="sobre-p">
+          Creemos que una vivienda bien diseñada combina tres cosas: estética que inspire, construcción que dure y eficiencia que cuide tus recursos. Por eso cada proyecto es único, personalizado y ejecutado con los mismos estándares que aplicaríamos a nuestra propia casa.
+        </p>
+
+        <div class="sobre-valores">
+          <div class="valor-item">
+            <div class="valor-dot"></div>
+            <div class="valor-text">Diseño personalizado</div>
+          </div>
+          <div class="valor-item">
+            <div class="valor-dot"></div>
+            <div class="valor-text">Construcción sustentable</div>
+          </div>
+          <div class="valor-item">
+            <div class="valor-dot"></div>
+            <div class="valor-text">Calidad garantizada</div>
+          </div>
+          <div class="valor-item">
+            <div class="valor-dot"></div>
+            <div class="valor-text">Estética innovadora</div>
+          </div>
+          <div class="valor-item">
+            <div class="valor-dot"></div>
+            <div class="valor-text">Eficiencia financiera</div>
+          </div>
+          <div class="valor-item">
+            <div class="valor-dot"></div>
+            <div class="valor-text">Proceso transparente</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== OBRAS ==================== -->
+<section id="obras">
+  <div class="container">
+    <div class="obras-header reveal">
+      <div>
+        <div class="section-eyebrow">Portfolio</div>
+        <h2 class="obras-h2">Obras realizadas<br>en Mendoza</h2>
+      </div>
+      <p class="obras-sub">Cada proyecto, un hogar construido a medida del cliente que lo habita.</p>
+    </div>
+
+    <div class="obras-grid">
+      <div class="obra-card reveal">
+        <div class="obra-placeholder"><div class="obra-placeholder-icon">◈</div></div>
+        <div class="obra-overlay">
+          <div class="obra-title">Casa Luján · 2024</div>
+          <div class="obra-meta">Luján de Cuyo · 280 m² · Vivienda unifamiliar</div>
+        </div>
+        <div class="obra-arrow">
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </div>
+
+      <div class="obra-card reveal reveal-delay-1">
+        <div class="obra-placeholder"><div class="obra-placeholder-icon">◈</div></div>
+        <div class="obra-overlay">
+          <div class="obra-title">Casa Maipú · 2024</div>
+          <div class="obra-meta">Maipú · 195 m² · Llave en mano</div>
+        </div>
+        <div class="obra-arrow">
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </div>
+
+      <div class="obra-card reveal reveal-delay-2">
+        <div class="obra-placeholder"><div class="obra-placeholder-icon">◈</div></div>
+        <div class="obra-overlay">
+          <div class="obra-title">Casa Godoy Cruz · 2023</div>
+          <div class="obra-meta">Godoy Cruz · 310 m² · Sustentable</div>
+        </div>
+        <div class="obra-arrow">
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </div>
+
+      <div class="obra-card reveal reveal-delay-1">
+        <div class="obra-placeholder"><div class="obra-placeholder-icon">◈</div></div>
+        <div class="obra-overlay">
+          <div class="obra-title">Casa Las Heras · 2023</div>
+          <div class="obra-meta">Las Heras · 240 m² · Por etapas</div>
+        </div>
+        <div class="obra-arrow">
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </div>
+
+      <div class="obra-card reveal reveal-delay-2">
+        <div class="obra-placeholder"><div class="obra-placeholder-icon">◈</div></div>
+        <div class="obra-overlay">
+          <div class="obra-title">Casa Chacras · 2023</div>
+          <div class="obra-meta">Luján de Cuyo · 180 m² · Minimalista</div>
+        </div>
+        <div class="obra-arrow">
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </div>
+
+      <div class="obra-card reveal reveal-delay-3">
+        <div class="obra-placeholder"><div class="obra-placeholder-icon">◈</div></div>
+        <div class="obra-overlay">
+          <div class="obra-title">Casa Guaymallén · 2022</div>
+          <div class="obra-meta">Guaymallén · 220 m² · Llave en mano</div>
+        </div>
+        <div class="obra-arrow">
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PROCESO ==================== -->
+<section id="proceso">
+  <div class="container">
+    <div class="proceso-header reveal">
+      <div class="section-eyebrow" style="color: var(--gold-l);">Método de trabajo</div>
+      <h2 class="proceso-h2">Un método claro para avanzar sin incertidumbre.</h2>
+      <p class="proceso-sub">Cada proyecto sigue el mismo flujo ordenado y previsible. Vos sabés en qué etapa estás y qué viene después.</p>
+    </div>
+
+    <div class="proceso-steps">
+      <div class="proceso-step reveal reveal-delay-1">
+        <div class="proceso-step-num">1</div>
+        <h3 class="proceso-step-h3">Relevamiento y objetivos</h3>
+        <p class="proceso-step-p">Escuchamos tu idea, entendemos tu forma de vivir, tu presupuesto y tus expectativas de diseño.</p>
+      </div>
+      <div class="proceso-step reveal reveal-delay-2">
+        <div class="proceso-step-num">2</div>
+        <h3 class="proceso-step-h3">Anteproyecto personalizado</h3>
+        <p class="proceso-step-p">Diseño preliminar con foco en funcionalidad, estética y sustentabilidad. Ajustamos hasta que sea exactamente lo que buscás.</p>
+      </div>
+      <div class="proceso-step reveal reveal-delay-3">
+        <div class="proceso-step-num">3</div>
+        <h3 class="proceso-step-h3">Proyecto ejecutivo</h3>
+        <p class="proceso-step-p">Planos definitivos, documentación técnica, permisos municipales y calendario de obra detallado.</p>
+      </div>
+      <div class="proceso-step reveal reveal-delay-4">
+        <div class="proceso-step-num">4</div>
+        <h3 class="proceso-step-h3">Construcción y entrega</h3>
+        <p class="proceso-step-p">Ejecución con supervisión técnica continua. Entrega del proyecto con garantía de calidad en cada detalle.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== RESEÑAS ==================== -->
+<section id="resenas">
+  <div class="container">
+    <div class="resenas-header reveal">
+      <div>
+        <div class="section-eyebrow">Clientes</div>
+        <h2 class="resenas-h2">Experiencias reales de quienes confiaron en nosotros.</h2>
+      </div>
+      <div class="resenas-rating">
+        <div class="big-num">5.0</div>
+        <div class="stars">★★★★★</div>
+        <div class="count">48 reseñas verificadas</div>
+      </div>
+    </div>
+
+    <div class="resenas-grid">
+      <div class="resena-card reveal reveal-delay-1">
+        <div class="resena-stars">★★★★★</div>
+        <p class="resena-text">Excelente comunicación y seguimiento. Nos ayudaron a optimizar costos sin bajar calidad.</p>
+        <div class="resena-author">
+          <div class="resena-avatar">D</div>
+          <div>
+            <div class="resena-author-name">Diego Olmos</div>
+            <div class="resena-author-loc">Godoy Cruz · 2024</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="resena-card reveal reveal-delay-2">
+        <div class="resena-stars">★★★★★</div>
+        <p class="resena-text">La calidad constructiva se nota en cada detalle. Cumplieron con todo y el proceso fue muy ordenado.</p>
+        <div class="resena-author">
+          <div class="resena-avatar">F</div>
+          <div>
+            <div class="resena-author-name">Florencia Vega</div>
+            <div class="resena-author-loc">Maipú · 2024</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="resena-card reveal reveal-delay-3">
+        <div class="resena-stars">★★★★★</div>
+        <p class="resena-text">Desde la primera reunión entendieron lo que buscábamos. El proyecto quedó impecable y cumplieron cada plazo.</p>
+        <div class="resena-author">
+          <div class="resena-avatar">S</div>
+          <div>
+            <div class="resena-author-name">Sofía Romero</div>
+            <div class="resena-author-loc">Maipú · 2024</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="resena-card reveal reveal-delay-1">
+        <div class="resena-stars">★★★★★</div>
+        <p class="resena-text">Nos dieron tranquilidad desde el diseño hasta la entrega. La obra quedó mejor de lo que imaginamos.</p>
+        <div class="resena-author">
+          <div class="resena-avatar">J</div>
+          <div>
+            <div class="resena-author-name">Julieta Arias</div>
+            <div class="resena-author-loc">Ciudad de Mendoza · 2024</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="resena-card reveal reveal-delay-2">
+        <div class="resena-stars">★★★★★</div>
+        <p class="resena-text">Transformaron nuestra idea en una obra de alta calidad. Súper profesionales en cada etapa del proceso.</p>
+        <div class="resena-author">
+          <div class="resena-avatar">M</div>
+          <div>
+            <div class="resena-author-name">Martín Sánchez</div>
+            <div class="resena-author-loc">Luján de Cuyo · 2024</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="resena-card reveal reveal-delay-3">
+        <div class="resena-stars">★★★★★</div>
+        <p class="resena-text">Equipo serio y confiable. Nos guiaron en decisiones clave y el resultado final fue excelente en todos los aspectos.</p>
+        <div class="resena-author">
+          <div class="resena-avatar">G</div>
+          <div>
+            <div class="resena-author-name">Gabriel Pérez</div>
+            <div class="resena-author-loc">Maipú · 2024</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FAQ ==================== -->
+<section id="faq">
+  <div class="container">
+    <div class="faq-inner">
+      <div class="faq-left reveal">
+        <div class="section-eyebrow">Preguntas frecuentes</div>
+        <h2 class="faq-h2">Respondemos antes de que preguntes.</h2>
+        <p class="faq-sub">Transparencia y claridad para que tomes decisiones con confianza. Si tu pregunta no está acá, hablemos.</p>
+        <a href="https://wa.me/5492613669285" class="faq-cta-link">
+          Hablar con el equipo →
+        </a>
+      </div>
+
+      <div class="faq-list reveal reveal-delay-2">
+        <div class="faq-item open">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            ¿Qué diferencia tiene construir con ustedes en lugar de contratar una constructora?
+            <div class="faq-q-icon"></div>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              Con nosotros, el <strong>mismo equipo que diseñó tu vivienda la construye</strong>. Eso elimina la brecha entre lo proyectado y lo ejecutado. Sin pérdida de información, sin malentendidos, sin sorpresas en las terminaciones.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            ¿Cómo funciona exactamente la construcción por etapas?
+            <div class="faq-q-icon"></div>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              Planificamos el proyecto completo desde el inicio pero lo ejecutamos en fases según tu disponibilidad de presupuesto. <strong>Cada etapa está pensada para que la siguiente encaje perfectamente</strong> — sin demoler, sin rehacer, sin costos imprevistos.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            ¿Qué implica la construcción sustentable y cuánto encarece la obra?
+            <div class="faq-q-icon"></div>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              Muchas estrategias sustentables como orientación bioclimática, aislación correcta o ventilación cruzada <strong>no agregan costo</strong> pero mejoran significativamente el confort y reducen gastos en energía durante años. Los sistemas activos (paneles solares, etc.) sí tienen inversión inicial con retorno a mediano plazo.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            ¿Tienen garantía sobre la obra ejecutada?
+            <div class="faq-q-icon"></div>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              Sí. <strong>Garantizamos la calidad constructiva</strong> de materiales y terminaciones. Trabajamos con proveedores seleccionados y cada etapa pasa por supervisión técnica propia antes de avanzar a la siguiente.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            ¿Trabajan en Mendoza capital y en departamentos?
+            <div class="faq-q-icon"></div>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              Sí. Trabajamos en toda la provincia: <strong>Maipú, Luján de Cuyo, Godoy Cruz, Las Heras, Guaymallén y Ciudad</strong>. La mayoría de nuestros proyectos actuales están en el Gran Mendoza.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            ¿Qué incluye la cotización inicial?
+            <div class="faq-q-icon"></div>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              Una reunión de relevamiento, lineamientos de diseño preliminares, alcance de obra estimado y una <strong>propuesta clara de tiempos y costos</strong>. Sin compromisos ni costos por la primera consulta.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CONTACTO ==================== -->
+<section id="contacto">
+  <div class="container">
+    <div class="contacto-inner">
+      <div class="reveal">
+        <div class="section-eyebrow" style="color: var(--gold-l);">Contacto</div>
+        <h2 class="contacto-h2">
+          Contanos tu idea.<br>
+          Nosotros la<br>
+          convertimos en<br>
+          <em>tu hogar.</em>
+        </h2>
+        <p class="contacto-sub">Cada proyecto empieza con una conversación. Coordiná una reunión sin costo y recibí una propuesta personalizada.</p>
+
+        <div class="contacto-data">
+          <div class="contacto-data-item">
+            <div class="contacto-data-icon">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="contacto-data-label">Dirección</div>
+              <div class="contacto-data-value">Rawson 2600, Piso 1 Of. 11<br>Centro El Torreón · Maipú, Mendoza</div>
+            </div>
+          </div>
+
+          <div class="contacto-data-item">
+            <div class="contacto-data-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.75a16 16 0 0 0 8.11 8.11l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="contacto-data-label">WhatsApp</div>
+              <div class="contacto-data-value">+54 9 261 366-9285</div>
+            </div>
+          </div>
+
+          <div class="contacto-data-item">
+            <div class="contacto-data-icon">
+              <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,14 22,4"/></svg>
+            </div>
+            <div>
+              <div class="contacto-data-label">Email</div>
+              <div class="contacto-data-value">arqsebastianfuriassi@hotmail.com</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-2">
+        <div class="form-row">
+          <div class="form-field">
+            <label class="form-label">Nombre</label>
+            <input type="text" class="form-input" placeholder="Tu nombre">
+          </div>
+          <div class="form-field">
+            <label class="form-label">Teléfono</label>
+            <input type="tel" class="form-input" placeholder="+54 9 ...">
+          </div>
+        </div>
+        <div class="form-field">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-input" placeholder="tu@email.com">
+        </div>
+        <div class="form-field">
+          <label class="form-label">Tipo de proyecto</label>
+          <input type="text" class="form-input" placeholder="Vivienda nueva / Ampliación / Reforma...">
+        </div>
+        <div class="form-field">
+          <label class="form-label">Contanos tu idea</label>
+          <textarea class="form-textarea" placeholder="Descripción breve, ubicación aproximada, presupuesto orientativo..."></textarea>
+        </div>
+        <button class="form-submit">Enviar consulta</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Furiassi Arquitectos</div>
+    <div class="footer-copy">© 2025 · Maipú, Mendoza · Argentina</div>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/furiassiarquitectos/" target="_blank">Instagram</a>
+      <a href="https://www.facebook.com/profile.php?id=100075989480282" target="_blank">Facebook</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── FAQ accordion ──────────────────────────────────────
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// ── Scroll reveal ──────────────────────────────────────
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08 });
+
+revealEls.forEach(el => observer.observe(el));
+
+// ── Nav shrink on scroll ───────────────────────────────
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 60) {
+    nav.style.height = '60px';
+    nav.style.borderBottomColor = 'rgba(181,168,152,0.35)';
+  } else {
+    nav.style.height = '72px';
+    nav.style.borderBottomColor = 'rgba(181,168,152,0.25)';
+  }
+}, { passive: true });
+</script>
+
+</body>
+</html>
