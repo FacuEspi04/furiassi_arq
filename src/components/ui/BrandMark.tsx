@@ -1,0 +1,15 @@
+/**
+ * Isotipo real de Furiassi Arquitectos (monograma "F"), no un placeholder.
+ * El color se controla desde afuera vía CSS `fill`/`color` en cada
+ * contexto (nav, watermarks de Hero/Estudio/Contacto) — por eso el SVG
+ * no fija su propio color de fondo. Mismo path que public/mark.svg.
+ */
+export function BrandMark({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 150 150" className={className} aria-hidden="true" focusable="false">
+      <g transform="translate(0.000000,150.000000) scale(0.100000,-0.100000)">
+        <path d="M550 1068 c-25 -13 -55 -38 -67 -56 -22 -33 -38 -117 -31 -163 3 -22 5 -21 22 14 10 20 33 47 50 60 30 21 43 22 276 27 l245 5 0 65 0 65 -225 3 c-217 2 -227 2 -270 -20z M567 866 c-76 -28 -106 -74 -114 -179 -6 -76 -2 -79 26 -25 37 67 58 72 326 78 l240 5 0 65 0 65 -220 2 c-166 2 -229 -1 -258 -11z M536 637 c-51 -29 -75 -77 -82 -163 -4 -58 -3 -66 8 -50 39 58 74 88 114 98 l44 12 0 63 c0 59 -2 63 -22 63 -13 0 -41 -10 -62 -23z" />
+      </g>
+    </svg>
+  );
+}

@@ -1,5 +1,6 @@
 import { site } from "@/content/site";
 import { Reveal } from "@/components/marketing/Reveal";
+import { BrandMark } from "@/components/ui/BrandMark";
 
 const valores = [
   "Diseño personalizado",
@@ -12,14 +13,14 @@ const valores = [
 
 export function Estudio() {
   return (
-    <section id="estudio" className="section-cream-2">
+    <section id="estudio" className="estudio-section">
       <div className="container">
         <div className="estudio-grid">
           <Reveal className="estudio-img-wrap">
             {/* TODO: reemplazar por <Image src="/estudio/sebastian-furiassi.jpg" ... />
                 cuando llegue la foto real del arquitecto / obra. */}
             <div className="estudio-img-placeholder" aria-hidden="true">
-              <span className="estudio-img-text">FA</span>
+              <BrandMark className="estudio-img-mark" />
             </div>
             <div className="estudio-stat-card">
               <p className="num">+{site.experienciaAnios}</p>

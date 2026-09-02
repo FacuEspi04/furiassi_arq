@@ -187,11 +187,9 @@ a {
 }
 
 .nav-logo-mark svg {
-  width: 16px;
-  height: 16px;
-  stroke: var(--espresso);
-  fill: none;
-  stroke-width: 1.5;
+  width: 20px;
+  height: 20px;
+  fill: var(--espresso);
 }
 
 .nav-logo-text {
@@ -286,21 +284,36 @@ a {
   stroke-width: 1.5;
 }
 
+.nav-mobile-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 98;
+  border: 0;
+  background: rgba(24, 20, 16, 0.42);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
 .nav-mobile-panel {
   position: fixed;
-  inset: var(--nav-h) 0 0 0;
+  top: var(--nav-h);
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 99;
-  background: var(--cream);
-  padding: 40px var(--pad-x);
+  background: rgba(245, 241, 235, 0.98);
+  padding: clamp(24px, 4vw, 40px) var(--pad-x) 32px;
   display: flex;
   flex-direction: column;
   gap: 4px;
   overflow-y: auto;
+  box-shadow: inset 0 1px 0 rgba(181, 168, 152, 0.3);
 }
 
 .nav-mobile-panel a {
   font-family: var(--font-display), serif;
-  font-size: 28px;
+  font-size: clamp(2rem, 6vw, 2.75rem);
+  line-height: 1.1;
   font-weight: 300;
   padding: 14px 0;
   border-bottom: 1px solid var(--cream-3);
@@ -328,6 +341,10 @@ a {
 
   .nav-burger {
     display: flex;
+  }
+
+  .site-nav {
+    z-index: 101;
   }
 }
 
@@ -363,12 +380,12 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-display), serif;
-  font-size: clamp(80px, 12vw, 160px);
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.05);
-  letter-spacing: -0.02em;
-  user-select: none;
+}
+
+.hero-right-mark-svg {
+  width: clamp(140px, 18vw, 260px);
+  height: clamp(140px, 18vw, 260px);
+  fill: rgba(255, 255, 255, 0.06);
 }
 
 .hero-right-overlay {
@@ -720,7 +737,7 @@ a {
 
 .servicios-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1px;
   background: var(--cream-3);
   border: 1px solid var(--cream-3);
@@ -805,33 +822,54 @@ a {
 }
 
 /* ============================================================
-   MODALIDADES DE CONTRATACIÓN
+   MODALIDADES DE CONTRATACIÓN — sección oscura: es el diferencial
+   comercial más fuerte del brief, así que lleva el mismo peso visual
+   que Diferenciales y Contacto, no el de una sección de contenido más.
    ============================================================ */
+.modalidades-section {
+  padding: clamp(80px, 10vw, 140px) 0;
+  background: var(--espresso);
+  color: var(--cream);
+}
+
+.modalidades-section .section-h2 {
+  color: var(--cream);
+}
+
+.modalidades-section .section-sub {
+  color: var(--stone);
+}
+
 .modalidades-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1px;
-  background: var(--cream-3);
-  border: 1px solid var(--cream-3);
+  background: rgba(181, 168, 152, 0.12);
 }
 
 .modalidad-card {
-  background: var(--cream);
+  background: var(--espresso);
   padding: 40px 32px;
   display: flex;
   flex-direction: column;
+  transition: background 0.3s;
+}
+
+.modalidad-card:hover {
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .modalidad-h3 {
   font-family: var(--font-display), serif;
   font-size: 26px;
   font-weight: 400;
+  color: var(--cream);
   margin-bottom: 6px;
 }
 
 .modalidad-tagline {
   font-size: 13px;
-  color: var(--gold);
+  color: var(--gold-l);
   font-family: var(--font-mono), monospace;
   margin-bottom: 24px;
 }
@@ -854,7 +892,7 @@ a {
 
 .modalidad-list-item dd {
   font-size: 14px;
-  color: var(--espresso);
+  color: var(--cream);
   font-weight: 300;
   line-height: 1.6;
 }
@@ -954,8 +992,15 @@ a {
 }
 
 /* ============================================================
-   SUSTENTABILIDAD
+   SUSTENTABILIDAD — cream-2 con un tinte de --sage: rompe la
+   monotonía de fondo claro sin sumar otro bloque oscuro, y el verde
+   conecta temáticamente con la sección.
    ============================================================ */
+.sustentabilidad-section {
+  padding: clamp(80px, 10vw, 140px) 0;
+  background: color-mix(in srgb, var(--cream-2), var(--sage) 7%);
+}
+
 .sustentabilidad-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1002,8 +1047,20 @@ a {
 }
 
 /* ============================================================
-   ESTUDIO (Sobre nosotros)
+   ESTUDIO (Sobre nosotros) — sección oscura: la imagen ya trae un
+   fondo oscuro con el watermark, así que ahora se integra con la
+   sección entera en vez de flotar sobre un borde claro.
    ============================================================ */
+.estudio-section {
+  padding: clamp(80px, 10vw, 140px) 0;
+  background: var(--espresso);
+  color: var(--cream);
+}
+
+.estudio-section .section-h2 {
+  color: var(--cream);
+}
+
 .estudio-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1026,12 +1083,10 @@ a {
   overflow: hidden;
 }
 
-.estudio-img-text {
-  font-family: var(--font-display), serif;
-  font-size: 80px;
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.06);
-  user-select: none;
+.estudio-img-mark {
+  width: 120px;
+  height: 120px;
+  fill: rgba(255, 255, 255, 0.07);
 }
 
 .estudio-stat-card {
@@ -1063,7 +1118,7 @@ a {
 .estudio-p {
   font-size: 15px;
   font-weight: 300;
-  color: var(--taupe);
+  color: var(--stone);
   line-height: 1.8;
   margin-bottom: 16px;
 }
@@ -1093,7 +1148,7 @@ a {
 .valor-text {
   font-size: 13px;
   font-weight: 400;
-  color: var(--espresso);
+  color: var(--cream);
 }
 
 @media (max-width: 1024px) {
@@ -1287,12 +1342,13 @@ a {
 }
 
 /* ============================================================
-   PROCESO
+   PROCESO — sección clara: va justo después de Estudio (oscura), así
+   que se mantiene clara para no encadenar dos secciones oscuras.
    ============================================================ */
 .proceso {
   padding: clamp(80px, 10vw, 140px) 0;
-  background: var(--espresso);
-  color: var(--cream);
+  background: var(--cream);
+  color: var(--espresso);
 }
 
 .proceso-header {
@@ -1302,7 +1358,7 @@ a {
 
 .proceso-sub {
   font-size: 15px;
-  color: var(--stone);
+  color: var(--taupe);
   font-weight: 300;
 }
 
@@ -1319,16 +1375,16 @@ a {
 .proceso-step-num {
   width: 52px;
   height: 52px;
-  border: 1px solid rgba(168, 136, 74, 0.4);
+  border: 1px solid var(--gold);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-display), serif;
   font-size: 20px;
   font-weight: 300;
-  color: var(--gold-l);
+  color: var(--gold);
   margin-bottom: 28px;
-  background: var(--espresso);
+  background: var(--cream);
   transition: background 0.3s, border-color 0.3s, color 0.3s;
 }
 
@@ -1342,14 +1398,14 @@ a {
   font-family: var(--font-display), serif;
   font-size: 19px;
   font-weight: 400;
-  color: var(--cream);
+  color: var(--espresso);
   margin-bottom: 8px;
 }
 
 .proceso-step-p {
   font-size: 13.5px;
   font-weight: 300;
-  color: var(--stone);
+  color: var(--taupe);
   line-height: 1.7;
 }
 
@@ -1629,16 +1685,13 @@ a {
   overflow: hidden;
 }
 
-.contacto::before {
-  content: "FA";
+.contacto-watermark {
   position: absolute;
   right: var(--pad-x);
-  bottom: -40px;
-  font-family: var(--font-display), serif;
-  font-size: 260px;
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.02);
-  line-height: 1;
+  bottom: -60px;
+  width: 320px;
+  height: 320px;
+  fill: rgba(255, 255, 255, 0.025);
   pointer-events: none;
 }
 

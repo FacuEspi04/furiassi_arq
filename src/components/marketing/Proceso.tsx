@@ -33,7 +33,7 @@ const pasos = [
 
 export function Proceso() {
   return (
-    <section className="proceso grain">
+    <section className="proceso">
       <div className="container">
         <div className="proceso-header">
           <h2 className="section-h2">

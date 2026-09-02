@@ -1,9 +1,11 @@
 import { site, getDireccionCompleta } from "@/content/site";
 import { ContactForm } from "@/components/marketing/ContactForm";
+import { BrandMark } from "@/components/ui/BrandMark";
 
 export function Contacto() {
   return (
     <section id="contacto" className="contacto grain">
+      <BrandMark className="contacto-watermark" />
       <div className="container">
         <div className="contacto-inner">
           <div>

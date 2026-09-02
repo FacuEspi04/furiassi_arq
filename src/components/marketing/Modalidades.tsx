@@ -86,7 +86,7 @@ const modalidades = [
 
 export function Modalidades() {
   return (
-    <section id="modalidades" className="section-cream-2">
+    <section id="modalidades" className="modalidades-section">
       <div className="container">
         <Reveal className="section-header">
           <h2 className="section-h2">

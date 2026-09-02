@@ -1,5 +1,6 @@
 import { site, getWhatsappUrl } from "@/content/site";
 import { PrimaryLinkButton, GhostLinkButton } from "@/components/ui/Button";
+import { BrandMark } from "@/components/ui/BrandMark";
 
 export function Hero() {
   return (
@@ -48,8 +49,10 @@ export function Hero() {
       </div>
 
       <div className="hero-right">
+        {/* TODO: reemplazar por <Image src="/hero/obra-principal.jpg" fill
+            sizes="50vw" priority alt="..." /> cuando llegue la foto/video real. */}
         <div className="hero-right-mark" aria-hidden="true">
-          FA
+          <BrandMark className="hero-right-mark-svg" />
         </div>
         <div className="hero-right-overlay" aria-hidden="true" />
         <div className="hero-right-badge">

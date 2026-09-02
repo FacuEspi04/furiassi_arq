@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { site, getWhatsappUrl } from "@/content/site";
 import { trackWhatsappClick } from "@/lib/analytics";
+import { BrandMark } from "@/components/ui/BrandMark";
 
 const links = [
   { href: "#servicios", label: "Servicios" },
@@ -75,9 +76,7 @@ export function Nav() {
       <nav className={scrolled ? "site-nav is-scrolled" : "site-nav"}>
         <a href="#inicio" className="nav-logo">
           <span className="nav-logo-mark">
-            <svg viewBox="0 0 20 20" aria-hidden="true">
-              <polygon points="10,2 18,18 2,18" />
-            </svg>
+            <BrandMark />
           </span>
           <span className="nav-logo-text">
             {site.nombre}
@@ -128,25 +127,40 @@ export function Nav() {
       </nav>
 
       {open && (
-        <div id="nav-mobile-panel" ref={panelRef} className="nav-mobile-panel">
-          {links.map((link) => (
-            <a key={link.href} href={link.href} onClick={() => setOpen(false)}>
-              {link.label}
-            </a>
-          ))}
-          <a
-            href={getWhatsappUrl("nav")}
-            className="nav-mobile-cta"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => {
-              trackWhatsappClick("nav");
-              setOpen(false);
-            }}
+        <>
+          <button
+            type="button"
+            className="nav-mobile-backdrop"
+            aria-label="Cerrar menú"
+            onClick={() => setOpen(false)}
+          />
+          <div
+            id="nav-mobile-panel"
+            ref={panelRef}
+            className="nav-mobile-panel"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Menú de navegación"
           >
-            Coordinar una reunión
-          </a>
-        </div>
+            {links.map((link) => (
+              <a key={link.href} href={link.href} onClick={() => setOpen(false)}>
+                {link.label}
+              </a>
+            ))}
+            <a
+              href={getWhatsappUrl("nav")}
+              className="nav-mobile-cta"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => {
+                trackWhatsappClick("nav");
+                setOpen(false);
+              }}
+            >
+              Coordinar una reunión
+            </a>
+          </div>
+        </>
       )}
     </>
   );

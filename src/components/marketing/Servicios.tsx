@@ -24,9 +24,6 @@ export function Servicios() {
               {servicio.destacado === "sustentable" && (
                 <span className="servicio-tag">Sustentable</span>
               )}
-              {servicio.destacado === "principal" && (
-                <span className="servicio-tag">Destacado</span>
-              )}
               <h3 className="servicio-h3">{servicio.titulo}</h3>
               <p className="servicio-tagline">{servicio.tagline}</p>
               <p className="servicio-p">{servicio.descripcion}</p>

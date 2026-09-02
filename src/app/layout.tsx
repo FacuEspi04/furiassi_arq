@@ -28,9 +28,9 @@ export const metadata: Metadata = {
     title: "Furiassi Arquitectos | Arquitectura residencial en Mendoza",
     description: site.descripcionCorta,
   },
-  icons: {
-    icon: "/favicon.ico",
-  },
+  // Sin `icons` explícito a propósito: Next detecta automáticamente
+  // src/app/icon.png y src/app/apple-icon.png (el isotipo real de la
+  // marca) por convención de archivo.
 };
 
 export const viewport: Viewport = {

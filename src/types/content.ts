@@ -32,7 +32,7 @@ export type Servicio = {
   titulo: string;
   tagline: string;
   descripcion: string;
-  destacado?: "sustentable" | "principal";
+  destacado?: "sustentable";
 };
 
 export type FaqItem = {

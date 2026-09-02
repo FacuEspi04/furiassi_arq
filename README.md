@@ -33,6 +33,7 @@ Todo el contenido vive en `src/content/` y se consume a través de funciones (`g
 | Reseñas individuales | `src/content/resenas.ts` — vacío a propósito, ver "Riesgos" |
 | Tokens de diseño (paleta, tipografía) | `styles/tokens.css` |
 | Fuentes self-hosted | `src/app/fonts/index.ts` + los `.woff2` en `src/app/fonts/` |
+| Isotipo / marca ("F") | `src/components/ui/BrandMark.tsx` (SVG inline, se usa en nav y como marca de agua en Hero/Estudio/Contacto) + `public/mark.svg`. Favicons por convención de archivo: `src/app/icon.png` y `src/app/apple-icon.png`. Variantes PNG exportadas (fondo transparente, espresso/blanco) en `public/brand/` por si se necesitan fuera de la web (impresos, firma de email, etc.). |
 
 ## First Load JS de `/` — medido, no estimado
 
@@ -80,3 +81,4 @@ El resto del presupuesto de performance (Lighthouse, LCP, CLS, peso total <1 MB)
 9. **Hero y fotos de obra**: sin fotografía real todavía (llega vía Google Drive), se mantuvo el tratamiento de placeholder con gradientes de marca del prototipo en vez de usar banco de imágenes. Cada lugar tiene un comentario marcando dónde entra la imagen real.
 10. **`/aviso-legal` y `/privacidad`**: son borradores estructurales, no texto legal validado por un profesional.
 11. **First Load JS**: ver la sección de arriba — 181 KB gzip medido contra el presupuesto de 120 KB, con la causa raíz explicada.
+12. **Isotipo ("F")**: a diferencia de las fotos (que sí son placeholders), el logo que usan `BrandMark.tsx`, `icon.png`/`apple-icon.png` y `public/brand/` es el diseño real de marca — no hace falta reemplazarlo, solo confirmar que es la versión final antes de imprimir cualquier pieza física con él.

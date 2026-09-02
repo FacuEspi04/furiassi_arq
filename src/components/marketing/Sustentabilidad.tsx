@@ -3,8 +3,7 @@ import { Reveal } from "@/components/marketing/Reveal";
 const acciones = [
   {
     titulo: "Orientación y asoleamiento",
-    texto:
-      "Ubicamos los ambientes según el recorrido del sol en Mendoza, para aprovechar calor en invierno y evitarlo en verano sin gastar en climatización.",
+    texto: "Ambientes ubicados según el sol de Mendoza — calor en invierno, sombra en verano.",
     icon: (
       <svg viewBox="0 0 32 32" aria-hidden="true">
         <circle cx="16" cy="16" r="6" strokeWidth="1.3" />
@@ -17,8 +16,7 @@ const acciones = [
   },
   {
     titulo: "Envolvente y aislación térmica",
-    texto:
-      "Muros, techos y cerramientos calculados para reducir la transferencia de calor, el gasto de mantenimiento y el ruido exterior.",
+    texto: "Muros y techos calculados para gastar menos en calefacción y refrigeración.",
     icon: (
       <svg viewBox="0 0 32 32" aria-hidden="true">
         <rect x="4" y="10" width="24" height="18" strokeWidth="1.3" />
@@ -29,8 +27,7 @@ const acciones = [
   },
   {
     titulo: "Carpinterías eficientes",
-    texto:
-      "Aberturas con doble vidriado hermético (DVH), reduciendo pérdidas de temperatura y filtraciones de aire respecto a una carpintería estándar.",
+    texto: "Doble vidriado hermético (DVH) — menos pérdida de temperatura, menos filtraciones.",
     icon: (
       <svg viewBox="0 0 32 32" aria-hidden="true">
         <rect x="6" y="4" width="20" height="24" strokeWidth="1.3" />
@@ -40,8 +37,7 @@ const acciones = [
   },
   {
     titulo: "Ventilación cruzada",
-    texto:
-      "Aberturas enfrentadas que generan circulación de aire natural, bajando la necesidad de climatización artificial en los meses de calor.",
+    texto: "Aberturas enfrentadas que renuevan el aire sin depender de climatización artificial.",
     icon: (
       <svg viewBox="0 0 32 32" aria-hidden="true">
         <path d="M4 12 H24 a4 4 0 0 0 0 -8" strokeWidth="1.3" />
@@ -51,8 +47,7 @@ const acciones = [
   },
   {
     titulo: "Gestión responsable del agua",
-    texto:
-      "Griferías y artefactos de bajo consumo, y previsión de cisternas o captación pluvial cuando el proyecto lo permite.",
+    texto: "Griferías de bajo consumo y captación pluvial cuando el terreno lo permite.",
     icon: (
       <svg viewBox="0 0 32 32" aria-hidden="true">
         <path
@@ -64,8 +59,7 @@ const acciones = [
   },
   {
     titulo: "Materiales responsables",
-    texto:
-      "Priorizamos materiales de buena procedencia, bajo mantenimiento y ciclo de vida largo, en vez de la opción más barata a corto plazo.",
+    texto: "Buena procedencia y ciclo de vida largo, antes que la opción más barata.",
     icon: (
       <svg viewBox="0 0 32 32" aria-hidden="true">
         <path d="M16 3 L28 10 V22 L16 29 L4 22 V10 Z" strokeWidth="1.3" />
@@ -78,7 +72,7 @@ const acciones = [
 
 export function Sustentabilidad() {
   return (
-    <section id="sustentabilidad" className="section-cream">
+    <section id="sustentabilidad" className="sustentabilidad-section">
       <div className="container">
         <Reveal className="section-header">
           <h2 className="section-h2">
