@@ -100,18 +100,23 @@ export function Modalidades() {
 
         <div className="modalidades-grid">
           {modalidades.map((modalidad) => (
-            <div className="modalidad-card" key={modalidad.id}>
-              <h3 className="modalidad-h3">{modalidad.titulo}</h3>
-              <p className="modalidad-tagline">{modalidad.tagline}</p>
-              <dl className="modalidad-list">
-                {modalidad.items.map((item) => (
-                  <div className="modalidad-list-item" key={item.label}>
-                    <dt>{item.label}</dt>
-                    <dd>{item.valor}</dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
+            <details className="modalidad-card" key={modalidad.id}>
+              <summary className="modalidad-h3">
+                {modalidad.titulo}
+                <span className="modalidad-h3-icon" aria-hidden="true" />
+              </summary>
+              <div className="modalidad-content">
+                <p className="modalidad-tagline">{modalidad.tagline}</p>
+                <dl className="modalidad-list">
+                  {modalidad.items.map((item) => (
+                    <div className="modalidad-list-item" key={item.label}>
+                      <dt>{item.label}</dt>
+                      <dd>{item.valor}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            </details>
           ))}
         </div>
       </div>

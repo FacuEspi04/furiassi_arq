@@ -21,9 +21,6 @@ export function Servicios() {
         <div className="servicios-grid">
           {servicios.map((servicio) => (
             <div className="servicio-card" key={servicio.id}>
-              {servicio.destacado === "sustentable" && (
-                <span className="servicio-tag">Sustentable</span>
-              )}
               <h3 className="servicio-h3">{servicio.titulo}</h3>
               <p className="servicio-tagline">{servicio.tagline}</p>
               <p className="servicio-p">{servicio.descripcion}</p>

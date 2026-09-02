@@ -1,47 +1,56 @@
 "use client";
 
-import { useActionState, useEffect, useRef } from "react";
-import { enviarConsulta, type ContactoState } from "@/lib/actions";
+import { useState, type FormEvent } from "react";
 import { modalidadInteres } from "@/lib/modalidad-interes";
 import { Field } from "@/components/ui/Field";
 import { trackFormSubmit } from "@/lib/analytics";
+import { buildWhatsappMessageUrl } from "@/lib/whatsapp";
 
-const initialState: ContactoState = { status: "idle" };
-
-/**
- * La validación completa (Zod) vive en lib/validation.ts y corre en el
- * Server Action — no se importa acá a propósito: zod pesa ~85 KB gzip y
- * rompía el presupuesto de First Load JS. En el cliente nos apoyamos en
- * los atributos HTML5 (required, type, minLength) para feedback
- * inmediato, y en los errores que devuelve el server tras el submit.
- */
 export function ContactForm() {
-  const [state, formAction, isPending] = useActionState(
-    enviarConsulta,
-    initialState
-  );
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const errors = state.fieldErrors ?? {};
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
 
-  // Éxito = el Server Action redirige a /gracias (el componente se
-  // desmonta antes de que "state" refleje un status de éxito), así que
-  // ese evento se registra allá. Acá solo registramos los rechazos.
-  const lastTrackedStatus = useRef<ContactoState["status"]>("idle");
-  useEffect(() => {
-    if (state.status !== "idle" && state.status !== lastTrackedStatus.current) {
-      trackFormSubmit("error");
+    const formData = new FormData(event.currentTarget);
+    const values = Object.fromEntries(
+      ["nombre", "telefono", "email", "localidad", "modalidad", "mensaje"].map(
+        (name) => [name, String(formData.get(name) ?? "").trim()]
+      )
+    );
+    const nextErrors: Record<string, string> = {};
+
+    for (const field of ["nombre", "telefono", "email", "modalidad"]) {
+      if (!values[field as keyof typeof values]) {
+        nextErrors[field] = "Este campo es obligatorio.";
+      }
     }
-    lastTrackedStatus.current = state.status;
-  }, [state.status]);
+
+    if (Object.keys(nextErrors).length > 0) {
+      setErrors(nextErrors);
+      trackFormSubmit("error");
+      return;
+    }
+
+    setErrors({});
+    const message = [
+      ["Nombre", values.nombre],
+      ["Teléfono", values.telefono],
+      ["Email", values.email],
+      ["Localidad", values.localidad],
+      ["Modalidad de interés", values.modalidad],
+      ["Idea", values.mensaje],
+    ]
+      .filter(([, value]) => value)
+      .map(([label, value]) => `${label}: ${value}`)
+      .join("\n");
+
+    trackFormSubmit("success");
+    window.location.assign(buildWhatsappMessageUrl(message));
+  }
 
   return (
-    <form className="contacto-right" action={formAction}>
-      {state.formError && (
-        <p className="form-error-banner" role="alert">
-          {state.formError}
-        </p>
-      )}
-
+    <form className="contacto-right" onSubmit={handleSubmit} noValidate>
       <div className="honeypot-field" aria-hidden="true">
         <label htmlFor="empresa">No completar este campo</label>
         <input
@@ -65,7 +74,6 @@ export function ContactForm() {
             maxLength={80}
             aria-invalid={Boolean(errors.nombre)}
             aria-describedby={errors.nombre ? "nombre-error" : undefined}
-            required
           />
         </Field>
         <Field id="telefono" label="Teléfono" error={errors.telefono}>
@@ -79,7 +87,6 @@ export function ContactForm() {
             maxLength={25}
             aria-invalid={Boolean(errors.telefono)}
             aria-describedby={errors.telefono ? "telefono-error" : undefined}
-            required
           />
         </Field>
       </div>
@@ -93,7 +100,6 @@ export function ContactForm() {
           placeholder="tu@email.com"
           aria-invalid={Boolean(errors.email)}
           aria-describedby={errors.email ? "email-error" : undefined}
-          required
         />
       </Field>
 
@@ -112,7 +118,6 @@ export function ContactForm() {
           maxLength={80}
           aria-invalid={Boolean(errors.localidad)}
           aria-describedby={errors.localidad ? "localidad-error" : undefined}
-          required
         />
       </Field>
 
@@ -124,7 +129,6 @@ export function ContactForm() {
           defaultValue=""
           aria-invalid={Boolean(errors.modalidad)}
           aria-describedby={errors.modalidad ? "modalidad-error" : undefined}
-          required
         >
           <option value="" disabled>
             Elegí una opción
@@ -147,12 +151,11 @@ export function ContactForm() {
           maxLength={2000}
           aria-invalid={Boolean(errors.mensaje)}
           aria-describedby={errors.mensaje ? "mensaje-error" : undefined}
-          required
         />
       </Field>
 
-      <button className="form-submit" type="submit" disabled={isPending}>
-        {isPending ? "Enviando..." : "Enviar consulta"}
+      <button className="form-submit" type="submit">
+        Enviar consulta
       </button>
     </form>
   );

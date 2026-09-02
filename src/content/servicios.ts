@@ -15,7 +15,6 @@ const servicios: Servicio[] = [
     titulo: "Construcción sustentable",
     tagline: "Menos consumo, más confort.",
     descripcion: "Orientación, aislación y ventilación pensadas desde el primer boceto.",
-    destacado: "sustentable",
   },
   {
     id: "direccion-de-obra",

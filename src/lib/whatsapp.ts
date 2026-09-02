@@ -6,3 +6,7 @@ export function buildWhatsappUrl(
   const texto = encodeURIComponent(whatsapp.mensajes[mensajeKey]);
   return `https://wa.me/${whatsapp.numero}?text=${texto}`;
 }
+
+export function buildWhatsappMessageUrl(message: string): string {
+  return `https://wa.me/${whatsapp.numero}?text=${encodeURIComponent(message)}`;
+}
