@@ -179,7 +179,6 @@ a {
 .nav-logo-mark {
   width: 36px;
   height: 36px;
-  border: 1.5px solid var(--espresso);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -187,8 +186,8 @@ a {
 }
 
 .nav-logo-mark svg {
-  width: 20px;
-  height: 20px;
+  width: 48px;
+  height: 48px;
   fill: var(--espresso);
 }
 
