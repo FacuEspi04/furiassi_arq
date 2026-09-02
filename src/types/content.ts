@@ -51,7 +51,9 @@ export type Resena = {
 };
 
 export type WhatsappOrigen =
-  | "hero"
+  | "heroReunion"
+  | "heroPresupuesto"
+  | "heroPlanos"
   | "nav"
   | "etapas"
   | "obras"

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getWhatsappUrl } from "@/content/site";
+import { buildWhatsappUrl } from "@/lib/whatsapp";
 import { PrimaryLinkButton } from "@/components/ui/Button";
 import { GraciasAnalytics } from "@/components/marketing/GraciasAnalytics";
 
@@ -25,7 +25,7 @@ export default function GraciasPage() {
         </p>
         <div style={{ display: "flex", gap: 24, justifyContent: "center", flexWrap: "wrap" }}>
           <PrimaryLinkButton
-            href={getWhatsappUrl("footer")}
+            href={buildWhatsappUrl("footer")}
             target="_blank"
             rel="noopener noreferrer"
           >

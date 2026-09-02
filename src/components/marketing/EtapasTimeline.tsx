@@ -1,4 +1,4 @@
-import { getWhatsappUrl } from "@/content/site";
+import { buildWhatsappUrl } from "@/lib/whatsapp";
 import { GhostLinkButton } from "@/components/ui/Button";
 import { Reveal } from "@/components/marketing/Reveal";
 
@@ -55,7 +55,7 @@ export function EtapasTimeline() {
 
         <div style={{ marginTop: 48 }}>
           <GhostLinkButton
-            href={getWhatsappUrl("etapas")}
+            href={buildWhatsappUrl("etapas")}
             target="_blank"
             rel="noopener noreferrer"
           >

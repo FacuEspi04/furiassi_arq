@@ -1,7 +1,7 @@
 import { getObras } from "@/content/obras";
 import { ObraCard } from "@/components/marketing/ObraCard";
 import { GhostLinkButton } from "@/components/ui/Button";
-import { getWhatsappUrl } from "@/content/site";
+import { buildWhatsappUrl } from "@/lib/whatsapp";
 import { Reveal } from "@/components/marketing/Reveal";
 
 export function Obras() {
@@ -33,7 +33,7 @@ export function Obras() {
 
         <div style={{ marginTop: 40 }}>
           <GhostLinkButton
-            href={getWhatsappUrl("obras")}
+            href={buildWhatsappUrl("obras")}
             target="_blank"
             rel="noopener noreferrer"
           >

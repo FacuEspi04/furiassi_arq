@@ -37,6 +37,18 @@ export function GhostLinkButton({
   );
 }
 
+export function SecondaryLinkButton({
+  children,
+  className,
+  ...props
+}: AnchorHTMLAttributes<HTMLAnchorElement>) {
+  return (
+    <a className={className ? `btn-secondary ${className}` : "btn-secondary"} {...props}>
+      {children}
+    </a>
+  );
+}
+
 export function PrimarySubmitButton({
   children,
   className,

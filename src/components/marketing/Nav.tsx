@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { site, getWhatsappUrl } from "@/content/site";
+import { site } from "@/content/site";
+import { buildWhatsappUrl } from "@/lib/whatsapp";
 import { trackWhatsappClick } from "@/lib/analytics";
 import { BrandMark } from "@/components/ui/BrandMark";
 
@@ -93,7 +94,7 @@ export function Nav() {
         </ul>
 
         <a
-          href={getWhatsappUrl("nav")}
+          href={buildWhatsappUrl("nav")}
           className="nav-cta"
           target="_blank"
           rel="noopener noreferrer"
@@ -148,7 +149,7 @@ export function Nav() {
               </a>
             ))}
             <a
-              href={getWhatsappUrl("nav")}
+              href={buildWhatsappUrl("nav")}
               className="nav-mobile-cta"
               target="_blank"
               rel="noopener noreferrer"

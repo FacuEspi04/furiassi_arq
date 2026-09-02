@@ -1,5 +1,12 @@
-import { site, getWhatsappUrl } from "@/content/site";
-import { PrimaryLinkButton, GhostLinkButton } from "@/components/ui/Button";
+"use client";
+
+import { site } from "@/content/site";
+import { buildWhatsappUrl } from "@/lib/whatsapp";
+import { trackWhatsappClick } from "@/lib/analytics";
+import {
+  PrimaryLinkButton,
+  SecondaryLinkButton,
+} from "@/components/ui/Button";
 import { BrandMark } from "@/components/ui/BrandMark";
 
 export function Hero() {
@@ -21,14 +28,34 @@ export function Hero() {
 
         <div className="hero-actions">
           <PrimaryLinkButton
-            href={getWhatsappUrl("hero")}
+            href={buildWhatsappUrl("heroReunion")}
             target="_blank"
             rel="noopener noreferrer"
+            data-cta="whatsapp_hero_reunion"
+            onClick={() => trackWhatsappClick("heroReunion")}
           >
             Coordinar una reunión
           </PrimaryLinkButton>
-          <GhostLinkButton href="#obras">Ver obras</GhostLinkButton>
+          <SecondaryLinkButton
+            href={buildWhatsappUrl("heroPresupuesto")}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-cta="whatsapp_hero_presupuesto"
+            onClick={() => trackWhatsappClick("heroPresupuesto")}
+          >
+            Obtener presupuesto de obra
+          </SecondaryLinkButton>
+          <SecondaryLinkButton
+            href={buildWhatsappUrl("heroPlanos")}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-cta="whatsapp_hero_planos"
+            onClick={() => trackWhatsappClick("heroPlanos")}
+          >
+            Cotizar los planos de mi proyecto
+          </SecondaryLinkButton>
         </div>
+        <a href="#obras" className="text-link">Ver obras</a>
 
         <div className="hero-stats">
           <div>

@@ -1,5 +1,5 @@
 import { getFaq } from "@/content/faq";
-import { getWhatsappUrl } from "@/content/site";
+import { buildWhatsappUrl } from "@/lib/whatsapp";
 import { FaqAnalytics } from "@/components/marketing/FaqAnalytics";
 
 export function Faq() {
@@ -18,7 +18,7 @@ export function Faq() {
               confianza. Si tu pregunta no está acá, hablemos.
             </p>
             <a
-              href={getWhatsappUrl("faq")}
+              href={buildWhatsappUrl("faq")}
               className="faq-cta-link"
               target="_blank"
               rel="noopener noreferrer"

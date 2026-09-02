@@ -1,5 +1,3 @@
-import type { WhatsappOrigen } from "@/types/content";
-
 /**
  * Fuente única de verdad del NAP (Name, Address, Phone) y datos de contacto.
  * Nav, footer, JSON-LD y la sección de contacto leen todos de acá — no
@@ -14,7 +12,6 @@ export const site = {
   url: "https://furiassiarquitectos.com",
   telefono: "+54 9 261 366 9285",
   telefonoE164: "+5492613669285",
-  whatsappNumero: "5492613669285",
   // TODO: el cliente solo confirmó este email (@hotmail.com); pidió reemplazarlo
   // por uno con dominio propio pero no llegó a proveerlo. Ver README > riesgos.
   email: "arqsebastianfuriassi@hotmail.com",
@@ -63,20 +60,21 @@ export const site = {
  * Mensajes de WhatsApp prellenados por sección de origen, para poder
  * identificar de dónde vino el lead con solo mirar el mensaje entrante.
  */
-const mensajesWhatsapp: Record<WhatsappOrigen, string> = {
-  nav: "Hola! Vi su web y quiero cotizar un proyecto.",
-  hero: "Hola! Vi su web y quiero cotizar un proyecto.",
-  etapas: "Hola! Quiero entender cómo funciona la construcción por etapas.",
-  obras: "Hola! Vi las obras y quiero consultar por un proyecto similar.",
-  faq: "Hola! Tengo una consulta que no encontré en las preguntas frecuentes.",
-  footer: "Hola! Quiero coordinar una reunión de relevamiento.",
-  fab: "Hola! Quiero coordinar una reunión de relevamiento.",
-};
-
-export function getWhatsappUrl(origen: WhatsappOrigen): string {
-  const texto = encodeURIComponent(mensajesWhatsapp[origen]);
-  return `https://wa.me/${site.whatsappNumero}?text=${texto}`;
-}
+export const whatsapp = {
+  numero: "5492613669285",
+  mensajes: {
+    nav: "Hola! Vi su web y quiero cotizar un proyecto.",
+    heroReunion:
+      "Hola! Quiero coordinar una reunión de relevamiento sin costo para mi proyecto.",
+    heroPresupuesto: "Hola! Quiero obtener un presupuesto de obra para mi proyecto.",
+    heroPlanos: "Hola! Quiero cotizar el diseño y los planos de mi proyecto.",
+    etapas: "Hola! Quiero entender cómo funciona la construcción por etapas.",
+    obras: "Hola! Vi las obras y quiero consultar por un proyecto similar.",
+    faq: "Hola! Tengo una consulta que no encontré en las preguntas frecuentes.",
+    footer: "Hola! Quiero coordinar una reunión de relevamiento.",
+    fab: "Hola! Quiero coordinar una reunión de relevamiento.",
+  },
+} as const;
 
 export function getDireccionCompleta(): string {
   const { calle, localidad, region, pais } = site.direccion;

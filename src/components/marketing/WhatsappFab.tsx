@@ -1,12 +1,12 @@
 "use client";
 
-import { getWhatsappUrl } from "@/content/site";
+import { buildWhatsappUrl } from "@/lib/whatsapp";
 import { trackWhatsappClick } from "@/lib/analytics";
 
 export function WhatsappFab() {
   return (
     <a
-      href={getWhatsappUrl("fab")}
+      href={buildWhatsappUrl("fab")}
       className="wa-fab"
       target="_blank"
       rel="noopener noreferrer"
