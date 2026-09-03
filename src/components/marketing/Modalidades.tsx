@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect } from "react";
 import { Reveal } from "@/components/marketing/Reveal";
 
 const modalidades = [
@@ -85,6 +88,36 @@ const modalidades = [
 ];
 
 export function Modalidades() {
+  useEffect(() => {
+    const cards = Array.from(
+      document.querySelectorAll<HTMLDetailsElement>(".modalidad-card")
+    );
+    const desktopQuery = window.matchMedia("(min-width: 861px)");
+
+    function syncCards() {
+      cards.forEach((card) => {
+        card.open = desktopQuery.matches;
+      });
+    }
+
+    function keepDesktopCardsOpen(event: Event) {
+      const card = event.currentTarget as HTMLDetailsElement;
+      if (desktopQuery.matches && !card.open) {
+        card.open = true;
+      }
+    }
+
+    syncCards();
+    cards.forEach((card) => card.addEventListener("toggle", keepDesktopCardsOpen));
+    desktopQuery.addEventListener("change", syncCards);
+    return () => {
+      cards.forEach((card) =>
+        card.removeEventListener("toggle", keepDesktopCardsOpen)
+      );
+      desktopQuery.removeEventListener("change", syncCards);
+    };
+  }, []);
+
   return (
     <section id="modalidades" className="modalidades-section">
       <div className="container">

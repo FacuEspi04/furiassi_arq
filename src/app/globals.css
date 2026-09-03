@@ -933,6 +933,10 @@ a {
   display: none;
 }
 
+.modalidad-h3::marker {
+  display: none;
+}
+
 .modalidad-h3-icon {
   display: none;
 }
@@ -969,6 +973,18 @@ a {
   color: var(--cream);
   font-weight: 300;
   line-height: 1.6;
+}
+
+@media (min-width: 861px) {
+  .modalidad-card:not([open]) > .modalidad-content {
+    display: contents;
+  }
+
+  .modalidad-h3 {
+    pointer-events: none;
+    cursor: default;
+    list-style: none;
+  }
 }
 
 @media (max-width: 1024px) {
