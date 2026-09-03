@@ -2088,11 +2088,30 @@ a {
 }
 
 .footer-logo {
+  position: relative;
   font-family: var(--font-display), serif;
   font-size: 18px;
   font-weight: 400;
   color: rgba(245, 241, 235, 0.5);
   letter-spacing: 0.04em;
+}
+
+.footer-logo-mark {
+  position: absolute;
+  top: 50%;
+  right: calc(100% + 12px);
+  width: 36px;
+  height: 36px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-logo-mark svg {
+  width: 48px;
+  height: 48px;
+  fill: rgba(245, 241, 235, 0.5);
 }
 
 .footer-copy {

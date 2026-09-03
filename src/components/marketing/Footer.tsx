@@ -1,10 +1,16 @@
 import { site } from "@/content/site";
+import { BrandMark } from "@/components/ui/BrandMark";
 
 export function Footer() {
   return (
     <footer className="site-footer">
       <div className="footer-inner">
-        <p className="footer-logo">{site.nombre}</p>
+        <p className="footer-logo">
+          <span className="footer-logo-mark">
+            <BrandMark />
+          </span>
+          {site.nombre}
+        </p>
         <p className="footer-copy">
           © {new Date().getFullYear()} · {site.direccion.localidad},{" "}
           {site.direccion.region} · Argentina
