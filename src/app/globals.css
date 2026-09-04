@@ -367,25 +367,17 @@ a {
   z-index: 2;
 }
 
-/* hero-right fills the full row height (matching hero-left, whatever that
-   turns out to be) — no gap. The photo itself never stretches: the square
-   .hero-right-frame inside it is centered via flex, so any extra height
-   becomes even espresso "matting" above/below the photo instead of a
-   separate empty block underneath it. */
+/* hero-right owns its own fixed aspect ratio and never stretches to match
+   hero-left's height (that caused visible empty "matting" above/below the
+   photo when hero-left got shorter). align-self: start keeps it pinned to
+   the top of the grid row instead of being stretched by the grid. */
 .hero-right {
   position: relative;
   overflow: hidden;
   background: var(--espresso);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero-right-frame {
-  position: relative;
   width: 100%;
-  aspect-ratio: 1 / 1;
-  flex-shrink: 0;
+  aspect-ratio: 4 / 5;
+  align-self: start;
 }
 
 .hero-right-image {

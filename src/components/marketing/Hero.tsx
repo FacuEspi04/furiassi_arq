@@ -65,25 +65,23 @@ export function Hero() {
       </div>
 
       <div className="hero-right">
-        <div className="hero-right-frame">
-          <Image
-            src={heroImage.src}
-            alt={heroImage.alt}
-            fill
-            priority
-            quality={90}
-            sizes="100vw"
-            className="hero-right-image"
-          />
-          <div className="hero-right-overlay" aria-hidden="true" />
-          <div className="hero-right-overlay-edge" aria-hidden="true" />
-          <div className="hero-right-mark" aria-hidden="true">
-            <BrandMark className="hero-right-mark-svg" />
-          </div>
-          <div className="hero-right-badge">
-            <p className="num">{site.resenas.reviewCount}</p>
-            <p className="label">Reseñas · {site.resenas.ratingValue.toFixed(1)} ★</p>
-          </div>
+        <Image
+          src={heroImage.src}
+          alt={heroImage.alt}
+          fill
+          priority
+          quality={90}
+          sizes="100vw"
+          className="hero-right-image"
+        />
+        <div className="hero-right-overlay" aria-hidden="true" />
+        <div className="hero-right-overlay-edge" aria-hidden="true" />
+        <div className="hero-right-mark" aria-hidden="true">
+          <BrandMark className="hero-right-mark-svg" />
+        </div>
+        <div className="hero-right-badge">
+          <p className="num">{site.resenas.reviewCount}</p>
+          <p className="label">Reseñas · {site.resenas.ratingValue.toFixed(1)} ★</p>
         </div>
       </div>
     </section>
