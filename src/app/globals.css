@@ -367,30 +367,59 @@ a {
   z-index: 2;
 }
 
+/* hero-right fills the full row height (matching hero-left, whatever that
+   turns out to be) — no gap. The photo itself never stretches: the square
+   .hero-right-frame inside it is centered via flex, so any extra height
+   becomes even espresso "matting" above/below the photo instead of a
+   separate empty block underneath it. */
 .hero-right {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #2a2318 0%, #4a3f32 40%, #6a5f50 100%);
-}
-
-.hero-right-mark {
-  position: absolute;
-  inset: 0;
+  background: var(--espresso);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+.hero-right-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  flex-shrink: 0;
+}
+
+.hero-right-image {
+  object-fit: cover;
+}
+
+.hero-right-mark {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1;
+}
+
 .hero-right-mark-svg {
-  width: clamp(140px, 18vw, 260px);
-  height: clamp(140px, 18vw, 260px);
-  fill: rgba(255, 255, 255, 0.06);
+  width: clamp(28px, 3vw, 40px);
+  height: clamp(28px, 3vw, 40px);
+  fill: rgba(255, 255, 255, 0.18);
 }
 
 .hero-right-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(42, 35, 24, 0.4) 0%, transparent 60%);
+  background: linear-gradient(
+    to top,
+    rgba(42, 35, 24, 0.7) 0%,
+    rgba(42, 35, 24, 0.1) 55%,
+    transparent 100%
+  );
+}
+
+.hero-right-overlay-edge {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to left, rgba(42, 35, 24, 0.5) 0%, transparent 45%);
 }
 
 .hero-right-badge {
@@ -515,15 +544,25 @@ a {
 
 .hero-stats {
   display: flex;
-  gap: 40px;
+  gap: 28px;
   flex-wrap: wrap;
   padding-top: 40px;
   border-top: 1px solid var(--cream-3);
 }
 
+/* The 3 stats must never wrap past this width — a wrapped row inflates
+   hero-left's height, which used to distort hero-right before it got its
+   own aspect-ratio. Keeping it compact keeps both columns visually close
+   in the common case. */
+@media (min-width: 1280px) {
+  .hero-stats {
+    flex-wrap: nowrap;
+  }
+}
+
 .stat-num {
   font-family: var(--font-display), serif;
-  font-size: 36px;
+  font-size: 30px;
   font-weight: 400;
   color: var(--espresso);
   line-height: 1;
@@ -535,6 +574,7 @@ a {
   letter-spacing: 0.08em;
   color: var(--taupe);
   margin-top: 5px;
+  white-space: nowrap;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -648,17 +688,12 @@ a {
     grid-template-columns: 1fr;
   }
 
-  .hero-right {
-    min-height: 42vh;
-  }
-
   .hero-actions {
     align-items: stretch;
     flex-direction: column;
     gap: 12px;
   }
 
-  .hero-actions .btn-primary,
   .hero-actions .btn-secondary {
     width: 100%;
     min-height: 52px;
@@ -1226,21 +1261,32 @@ a {
   position: relative;
 }
 
-.estudio-img-placeholder {
+.estudio-img-frame {
   width: 100%;
-  aspect-ratio: 4 / 5;
-  background: linear-gradient(135deg, var(--espresso) 0%, #4a3f32 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  /* 1:1 matches the source file exactly (1500x1500) on every breakpoint —
+     no crop is ever needed, so the full composition (casco, nivel, plano,
+     llaves) always stays in frame regardless of container width. Same fix
+     as the hero image. */
+  aspect-ratio: 1 / 1;
   position: relative;
   overflow: hidden;
+  border-radius: 2px;
+  background: var(--espresso);
+  /* Oscurecido interior en los bordes, sumado al viñeteado que ya trae la
+     imagen, para que el panel funda con el fondo espresso de la sección
+     en vez de leerse como un rectángulo insertado. */
+  box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.35);
 }
 
-.estudio-img-mark {
-  width: 120px;
-  height: 120px;
-  fill: rgba(255, 255, 255, 0.07);
+.estudio-img {
+  object-fit: cover;
+  object-position: 50% 45%;
+}
+
+@media (min-width: 1025px) {
+  .estudio-img {
+    object-position: 50% 40%;
+  }
 }
 
 .estudio-stat-card {
@@ -1308,9 +1354,6 @@ a {
 @media (max-width: 1024px) {
   .estudio-grid {
     grid-template-columns: 1fr;
-  }
-  .estudio-img-placeholder {
-    aspect-ratio: 16 / 7;
   }
   .estudio-stat-card {
     bottom: -12px;

@@ -64,8 +64,6 @@ export const whatsapp = {
   numero: "5492613669285",
   mensajes: {
     nav: "Hola! Vi su web y quiero cotizar un proyecto.",
-    heroReunion:
-      "Hola! Quiero coordinar una reunión de relevamiento sin costo para mi proyecto.",
     heroPresupuesto: "Hola! Quiero obtener un presupuesto de obra para mi proyecto.",
     heroPlanos: "Hola! Quiero cotizar el diseño y los planos de mi proyecto.",
     etapas: "Hola! Quiero entender cómo funciona la construcción por etapas.",
@@ -74,6 +72,24 @@ export const whatsapp = {
     footer: "Hola! Quiero coordinar una reunión de relevamiento.",
     fab: "Hola! Quiero coordinar una reunión de relevamiento.",
   },
+} as const;
+
+/**
+ * Imagen real del panel derecho del Hero (anteproyecto residencial). Tipada
+ * acá para que Hero.tsx no hardcodee el path ni el alt de la imagen LCP.
+ */
+export const heroImage = {
+  src: "/images/hero/anteproyecto-hormigon-pileta.webp",
+  alt: "Render de anteproyecto residencial de Furiassi Arquitectos: vivienda de hormigón visto con pileta, Mendoza",
+} as const;
+
+/**
+ * Imagen del panel izquierdo de la sección "Sobre nosotros" (Estudio).
+ * Tipada acá para que Estudio.tsx no hardcodee el path ni el alt.
+ */
+export const aboutImage = {
+  src: "/images/nosotros/planos-obra.webp",
+  alt: "Planos, casco y nivel sobre el hormigón: proceso de dirección técnica de Furiassi Arquitectos",
 } as const;
 
 export function getDireccionCompleta(): string {

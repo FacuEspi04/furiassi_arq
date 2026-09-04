@@ -1,6 +1,6 @@
-import { site } from "@/content/site";
+import Image from "next/image";
+import { site, aboutImage } from "@/content/site";
 import { Reveal } from "@/components/marketing/Reveal";
-import { BrandMark } from "@/components/ui/BrandMark";
 
 const valores = [
   "Diseño personalizado",
@@ -17,10 +17,15 @@ export function Estudio() {
       <div className="container">
         <div className="estudio-grid">
           <Reveal className="estudio-img-wrap">
-            {/* TODO: reemplazar por <Image src="/estudio/sebastian-furiassi.jpg" ... />
-                cuando llegue la foto real del arquitecto / obra. */}
-            <div className="estudio-img-placeholder" aria-hidden="true">
-              <BrandMark className="estudio-img-mark" />
+            <div className="estudio-img-frame">
+              <Image
+                src={aboutImage.src}
+                alt={aboutImage.alt}
+                fill
+                loading="lazy"
+                sizes="(min-width: 1025px) 50vw, 100vw"
+                className="estudio-img"
+              />
             </div>
             <div className="estudio-stat-card">
               <p className="num">+{site.experienciaAnios}</p>
