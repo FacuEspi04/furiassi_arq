@@ -554,9 +554,9 @@ a {
 
 .stat-num {
   font-family: var(--font-display), serif;
-  font-size: 30px;
-  font-weight: 400;
-  color: var(--espresso);
+  font-size: 42px;
+  font-weight: 500;
+  color: var(--gold);
   line-height: 1;
 }
 
@@ -942,10 +942,7 @@ a {
   display: flex;
   flex-direction: column;
   transition: background 0.3s;
-}
-
-.modalidad-card:hover {
-  background: rgba(255, 255, 255, 0.03);
+  height: 100%;
 }
 
 .modalidad-h3 {
@@ -954,6 +951,20 @@ a {
   font-weight: 400;
   color: var(--cream);
   margin-bottom: 6px;
+}
+
+.modalidad-h3-title-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.modalidad-top-icon {
+  width: 32px;
+  height: 32px;
+  stroke: var(--gold-l);
+  fill: none;
+  stroke-width: 1;
+  margin-bottom: 20px;
 }
 
 .modalidad-h3::-webkit-details-marker {
@@ -982,8 +993,13 @@ a {
 .modalidad-list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 32px;
   margin-top: 8px;
+  flex-grow: 1;
+}
+
+.modalidad-list-item:last-child {
+  margin-top: auto;
 }
 
 .modalidad-list-item dt {
@@ -1023,6 +1039,19 @@ a {
 @media (max-width: 860px) {
   .modalidad-card {
     padding: 0;
+  }
+
+  .modalidad-h3-title-wrap {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .modalidad-top-icon {
+    margin-bottom: 0;
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
   }
 
   .modalidad-h3 {

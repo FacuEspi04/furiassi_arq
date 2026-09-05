@@ -20,13 +20,8 @@ const pilares = [
       "Orientación, envolvente térmica y materiales responsables definidos desde el diseño, no como agregado al final de la obra.",
     icon: (
       <svg viewBox="0 0 40 40" aria-hidden="true">
-        <path
-          d="M20 6 C10 6 6 14 6 20 C6 28 12 34 20 34 C28 34 34 28 34 20"
-          strokeWidth="1"
-        />
-        <path d="M28 6 L28 14 L36 10 Z" strokeWidth="1" />
-        <line x1="20" y1="14" x2="20" y2="26" strokeWidth="1" />
-        <line x1="14" y1="20" x2="26" y2="20" strokeWidth="1" />
+        <path d="M20 34 C20 34 10 28 10 18 C10 8 20 4 20 4 C20 4 30 8 30 18 C30 28 20 34 20 34 Z" strokeWidth="1" />
+        <line x1="20" y1="34" x2="20" y2="12" strokeWidth="1" />
       </svg>
     ),
   },
@@ -36,8 +31,8 @@ const pilares = [
       "Dirección técnica propia y controles por etapa antes de avanzar a la siguiente, con garantía escrita por contrato.",
     icon: (
       <svg viewBox="0 0 40 40" aria-hidden="true">
-        <circle cx="20" cy="20" r="14" strokeWidth="1" />
-        <polyline points="13,20 18,25 27,15" strokeWidth="1.5" />
+        <path d="M8 8 L20 4 L32 8 L32 18 C32 26 24 34 20 36 C16 34 8 26 8 18 Z" strokeWidth="1" />
+        <polyline points="14,20 19,25 26,15" strokeWidth="1" />
       </svg>
     ),
   },

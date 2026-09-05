@@ -4,7 +4,7 @@ import Image from "next/image";
 import { site, heroImage } from "@/content/site";
 import { buildWhatsappUrl } from "@/lib/whatsapp";
 import { trackWhatsappClick } from "@/lib/analytics";
-import { SecondaryLinkButton } from "@/components/ui/Button";
+import { SecondaryLinkButton, PrimaryLinkButton } from "@/components/ui/Button";
 import { BrandMark } from "@/components/ui/BrandMark";
 
 export function Hero() {
@@ -34,15 +34,16 @@ export function Hero() {
           >
             Obtener presupuesto de obra
           </SecondaryLinkButton>
-          <SecondaryLinkButton
+          <PrimaryLinkButton
             href={buildWhatsappUrl("heroPlanos")}
             target="_blank"
             rel="noopener noreferrer"
             data-cta="whatsapp_hero_planos"
             onClick={() => trackWhatsappClick("heroPlanos")}
+            withArrow={false}
           >
             Cotizar los planos de mi proyecto
-          </SecondaryLinkButton>
+          </PrimaryLinkButton>
         </div>
         <a href="#obras" className="text-link">Ver obras</a>
 
@@ -71,17 +72,13 @@ export function Hero() {
           fill
           priority
           quality={90}
-          sizes="100vw"
+          sizes="(max-width: 860px) 100vw, 50vw"
           className="hero-right-image"
         />
         <div className="hero-right-overlay" aria-hidden="true" />
         <div className="hero-right-overlay-edge" aria-hidden="true" />
         <div className="hero-right-mark" aria-hidden="true">
           <BrandMark className="hero-right-mark-svg" />
-        </div>
-        <div className="hero-right-badge">
-          <p className="num">{site.resenas.reviewCount}</p>
-          <p className="label">Reseñas · {site.resenas.ratingValue.toFixed(1)} ★</p>
         </div>
       </div>
     </section>

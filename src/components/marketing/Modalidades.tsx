@@ -8,6 +8,12 @@ const modalidades = [
     id: "proyecto-direccion",
     titulo: "Proyecto y dirección",
     tagline: "Vos elegís tu equipo de obra, nosotros diseñamos y controlamos.",
+    icon: (
+      <svg viewBox="0 0 40 40" aria-hidden="true" className="modalidad-top-icon">
+        <path d="M6,18 L20,6 L34,18" strokeWidth="1" fill="none" />
+        <path d="M10,15 L10,34 L30,34 L30,15" strokeWidth="1" fill="none" />
+      </svg>
+    ),
     items: [
       {
         label: "Qué incluye",
@@ -35,6 +41,14 @@ const modalidades = [
     id: "llave-en-mano",
     titulo: "Llave en mano",
     tagline: "Un solo equipo responsable, del primer boceto a las llaves.",
+    icon: (
+      <svg viewBox="0 0 40 40" aria-hidden="true" className="modalidad-top-icon">
+        <circle cx="28" cy="12" r="6" strokeWidth="1" fill="none" />
+        <line x1="23.7" y1="16.2" x2="8" y2="32" strokeWidth="1" />
+        <line x1="12" y1="28" x2="16" y2="32" strokeWidth="1" />
+        <line x1="16" y1="24" x2="20" y2="28" strokeWidth="1" />
+      </svg>
+    ),
     items: [
       {
         label: "Qué incluye",
@@ -62,6 +76,13 @@ const modalidades = [
     id: "por-etapas",
     titulo: "Construcción por etapas",
     tagline: "Tu casa, a tu ritmo financiero — sin rehacer nada.",
+    icon: (
+      <svg viewBox="0 0 40 40" aria-hidden="true" className="modalidad-top-icon">
+        <rect x="6" y="26" width="8" height="8" strokeWidth="1" fill="none" />
+        <rect x="16" y="18" width="8" height="16" strokeWidth="1" fill="none" />
+        <rect x="26" y="10" width="8" height="24" strokeWidth="1" fill="none" />
+      </svg>
+    ),
     items: [
       {
         label: "Qué incluye",
@@ -133,9 +154,15 @@ export function Modalidades() {
 
         <div className="modalidades-grid">
           {modalidades.map((modalidad) => (
-            <details className="modalidad-card" key={modalidad.id}>
+            <details 
+              className="modalidad-card"
+              key={modalidad.id}
+            >
               <summary className="modalidad-h3">
-                {modalidad.titulo}
+                <span className="modalidad-h3-title-wrap">
+                  {modalidad.icon}
+                  <span className="modalidad-h3-text">{modalidad.titulo}</span>
+                </span>
                 <span className="modalidad-h3-icon" aria-hidden="true" />
               </summary>
               <div className="modalidad-content">
