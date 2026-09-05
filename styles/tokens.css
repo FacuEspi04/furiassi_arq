@@ -24,4 +24,5 @@
   --pad-x: clamp(24px, 6vw, 96px);
   --nav-h: 72px;
   --nav-h-scrolled: 60px;
+  --section-py: clamp(80px, 10vw, 104px);
 }

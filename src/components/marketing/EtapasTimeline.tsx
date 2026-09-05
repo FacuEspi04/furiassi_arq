@@ -46,7 +46,7 @@ export function EtapasTimeline() {
               <div className="etapa-num" aria-hidden="true">
                 {etapa.numero}
               </div>
-              <span className="etapa-badge">{etapa.badge}</span>
+              <span className="section-eyebrow etapa-badge">{etapa.badge}</span>
               <h3 className="etapa-h3">{etapa.titulo}</h3>
               <p className="etapa-p">{etapa.texto}</p>
             </div>

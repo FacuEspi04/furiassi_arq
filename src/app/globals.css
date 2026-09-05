@@ -696,7 +696,7 @@ a {
    DIFERENCIALES
    ============================================================ */
 .diferenciales {
-  padding: clamp(80px, 10vw, 140px) 0;
+  padding: var(--section-py) 0;
   background: var(--espresso);
   color: var(--cream);
   position: relative;
@@ -789,12 +789,12 @@ a {
    SERVICIOS / MODALIDADES (cream, tarjetas en grilla de 1px)
    ============================================================ */
 .section-cream {
-  padding: clamp(80px, 10vw, 140px) 0;
+  padding: var(--section-py) 0;
   background: var(--cream);
 }
 
 .section-cream-2 {
-  padding: clamp(80px, 10vw, 140px) 0;
+  padding: var(--section-py) 0;
   background: var(--cream-2);
 }
 
@@ -916,7 +916,7 @@ a {
    que Diferenciales y Contacto, no el de una sección de contenido más.
    ============================================================ */
 .modalidades-section {
-  padding: clamp(80px, 10vw, 140px) 0;
+  padding: var(--section-py) 0;
   background: var(--espresso);
   color: var(--cream);
 }
@@ -1117,7 +1117,7 @@ a {
    ETAPAS (línea de tiempo)
    ============================================================ */
 .etapas {
-  padding: clamp(80px, 10vw, 140px) 0;
+  padding: var(--section-py) 0;
   background: var(--cream-2);
   border-top: 1px solid var(--cream-3);
   border-bottom: 1px solid var(--cream-3);
@@ -1134,11 +1134,11 @@ a {
 .etapas-timeline::before {
   content: "";
   position: absolute;
-  top: 27px;
+  top: 22px;
   left: 4%;
   right: 4%;
   height: 1px;
-  background: var(--cream-3);
+  background: color-mix(in srgb, var(--espresso) 25%, transparent);
 }
 
 .etapa-item {
@@ -1148,17 +1148,16 @@ a {
 }
 
 .etapa-num {
-  width: 56px;
-  height: 56px;
-  border: 1px solid var(--gold);
-  background: var(--cream-2);
+  width: 36px;
+  height: 36px;
+  background: var(--espresso);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-display), serif;
-  font-size: 22px;
+  font-size: 16px;
   font-weight: 400;
-  color: var(--gold);
+  color: var(--cream);
   margin-bottom: 24px;
   position: relative;
   z-index: 1;
@@ -1172,15 +1171,6 @@ a {
 }
 
 .etapa-badge {
-  display: inline-block;
-  font-family: var(--font-mono), monospace;
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--sage);
-  background: rgba(122, 148, 136, 0.12);
-  border: 1px solid rgba(122, 148, 136, 0.3);
-  padding: 3px 10px;
   margin-bottom: 12px;
 }
 
@@ -1207,7 +1197,7 @@ a {
    conecta temáticamente con la sección.
    ============================================================ */
 .sustentabilidad-section {
-  padding: clamp(80px, 10vw, 140px) 0;
+  padding: var(--section-py) 0;
   background: color-mix(in srgb, var(--cream-2), var(--sage) 7%);
 }
 
@@ -1262,7 +1252,7 @@ a {
    sección entera en vez de flotar sobre un borde claro.
    ============================================================ */
 .estudio-section {
-  padding: clamp(80px, 10vw, 140px) 0;
+  padding: var(--section-py) 0;
   background: var(--espresso);
   color: var(--cream);
 }
@@ -1566,7 +1556,7 @@ a {
    que se mantiene clara para no encadenar dos secciones oscuras.
    ============================================================ */
 .proceso {
-  padding: clamp(80px, 10vw, 140px) 0;
+  padding: var(--section-py) 0;
   background: var(--cream);
   color: var(--espresso);
 }
@@ -1586,32 +1576,38 @@ a {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 24px 0;
+  position: relative;
+}
+
+.proceso-steps::before {
+  content: "";
+  position: absolute;
+  top: 22px;
+  left: 4%;
+  right: 4%;
+  height: 1px;
+  background: color-mix(in srgb, var(--espresso) 25%, transparent);
 }
 
 .proceso-step {
   padding-right: 24px;
+  position: relative;
 }
 
 .proceso-step-num {
-  width: 52px;
-  height: 52px;
-  border: 1px solid var(--gold);
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-display), serif;
-  font-size: 20px;
-  font-weight: 300;
-  color: var(--gold);
-  margin-bottom: 28px;
-  background: var(--cream);
-  transition: background 0.3s, border-color 0.3s, color 0.3s;
-}
-
-.proceso-step:hover .proceso-step-num {
-  background: var(--gold);
-  border-color: var(--gold);
+  font-size: 16px;
+  font-weight: 400;
   color: var(--cream);
+  margin-bottom: 28px;
+  background: var(--espresso);
+  position: relative;
+  z-index: 1;
 }
 
 .proceso-step-h3 {
@@ -1633,6 +1629,9 @@ a {
   .proceso-steps {
     grid-template-columns: repeat(2, 1fr);
     gap: 40px 24px;
+  }
+  .proceso-steps::before {
+    display: none;
   }
 }
 
@@ -1898,7 +1897,7 @@ a {
    CONTACTO
    ============================================================ */
 .contacto {
-  padding: clamp(80px, 10vw, 140px) 0;
+  padding: var(--section-py) 0;
   background: var(--espresso);
   color: var(--cream);
   position: relative;
