@@ -11,17 +11,17 @@ export function Hero() {
   return (
     <section id="inicio" className="hero">
       <div className="hero-left">
-        <p className="hero-kicker">Arquitectura residencial · Mendoza</p>
+        <p className="hero-kicker">Arquitectura residencial</p>
 
         <h1 className="hero-h1">
-          Tu casa, <em>diseñada a tu medida</em>
-          <br />y construida con garantía.
+          Construimos tu proyecto.<em> Vos disfrutas el resultado.</em>
         </h1>
 
         <p className="hero-sub">
-          Diseñamos y construimos viviendas personalizadas en el Gran Mendoza.
-          Llave en mano o por etapas, con eficiencia constructiva, criterios
-          sustentables y garantía escrita en cada proyecto.
+          Desde el diseño hasta la entrega llave en mano, nos ocupamos de planificar, controlar y ejecutar cada etapa, optimizando costos y tiempos, obteniendo eficientes resultados de obra.
+        </p>
+        <p className="hero-sub">
+          Garantía certificada · Asesoramiento para la obtención de Créditos. Profesionales con experiencia  
         </p>
 
         <div className="hero-actions">

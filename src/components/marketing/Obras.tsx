@@ -14,15 +14,9 @@ export function Obras() {
           <div>
             <p className="section-eyebrow">Portfolio</p>
             <h2 className="section-h2" style={{ marginBottom: 0 }}>
-              Obras realizadas
-              <br />
-              en Mendoza
+              Obras realizadas en Mendoza
             </h2>
           </div>
-          <p className="obras-sub">
-            Cada proyecto, un hogar construido a medida del cliente que lo
-            habita.
-          </p>
         </Reveal>
 
         <Reveal className="obras-grid">

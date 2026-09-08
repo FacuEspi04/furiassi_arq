@@ -7,6 +7,10 @@ export function trackWhatsappClick(origen: WhatsappOrigen) {
   track("whatsapp_click", { origen });
 }
 
+export function trackCtaClick(ctaName: string, location: string) {
+  track("cta_click", { cta_name: ctaName, location });
+}
+
 export function trackFormSubmit(status: "success" | "error") {
   track("contact_form_submit", { status });
 }

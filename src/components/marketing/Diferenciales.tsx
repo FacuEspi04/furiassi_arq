@@ -2,9 +2,9 @@ import { Reveal } from "@/components/marketing/Reveal";
 
 const pilares = [
   {
-    titulo: "Diseño exclusivo y a medida",
+    titulo: "Diseño exclusivo y a tu medida",
     texto:
-      "Cada proyecto parte de cero: de cómo vive tu familia, no de un plano tipo. No hay dos casas Furiassi iguales.",
+      "Combinamos tus ideas, tus necesidades de diseño y tus recursos económicos con nuestro enfoque constructivo y perspectiva de diseño para lograr un proyecto sin igual.",
     icon: (
       <svg viewBox="0 0 40 40" aria-hidden="true">
         <rect x="4" y="20" width="32" height="16" strokeWidth="1" />
@@ -15,9 +15,9 @@ const pilares = [
     ),
   },
   {
-    titulo: "Sustentabilidad real",
+    titulo: "Sustentabilidad selectiva",
     texto:
-      "Orientación, envolvente térmica y materiales responsables definidos desde el diseño, no como agregado al final de la obra.",
+      "Evaluamos la aplicación de diferentes materiales y métodos activos o pasivos de aislación térmica y acústica que mejoran las cualidades estándar de cada espacio y potencian el ahorro y cuidados del medio ambiente.",
     icon: (
       <svg viewBox="0 0 40 40" aria-hidden="true">
         <path d="M20 34 C20 34 10 28 10 18 C10 8 20 4 20 4 C20 4 30 8 30 18 C30 28 20 34 20 34 Z" strokeWidth="1" />
@@ -26,9 +26,9 @@ const pilares = [
     ),
   },
   {
-    titulo: "Garantía y calidad de obra",
+    titulo: "Garantía de obra",
     texto:
-      "Dirección técnica propia y controles por etapa antes de avanzar a la siguiente, con garantía escrita por contrato.",
+      "Controlamos y certificamos cada etapa de la obra para darte tranquilidad antes, durante y al final de la entrega de cada obra terminada junto a todas las aprobaciones municipales.",
     icon: (
       <svg viewBox="0 0 40 40" aria-hidden="true">
         <path d="M8 8 L20 4 L32 8 L32 18 C32 26 24 34 20 36 C16 34 8 26 8 18 Z" strokeWidth="1" />
@@ -39,7 +39,7 @@ const pilares = [
   {
     titulo: "Flexibilidad financiera",
     texto:
-      "Llave en mano completo o construcción por etapas, cada etapa habitable y certificada antes de pasar a la siguiente.",
+      "Construimos llave en mano, o en etapas de acuerdo a las necesidades de cada cliente. Asimismo, brindamos asesoramiento para la obtención de créditos hipotecarios adaptando el plan de obra a las posibilidades crediticias personales.",
     icon: (
       <svg viewBox="0 0 40 40" aria-hidden="true">
         <line x1="8" y1="32" x2="8" y2="14" strokeWidth="1" />
@@ -58,14 +58,8 @@ export function Diferenciales() {
       <div className="container">
         <Reveal className="diferenciales-header">
           <h2 className="diferenciales-h2">
-            Cada proyecto, único.
-            <br />
-            Cada obra, garantizada.
+            Así pensamos cada proyecto.
           </h2>
-          <p className="diferenciales-sub">
-            Diseño exclusivo, eficiencia constructiva y acompañamiento
-            completo de principio a fin, en cada vivienda que firmamos.
-          </p>
         </Reveal>
 
         <div className="diferenciales-grid">

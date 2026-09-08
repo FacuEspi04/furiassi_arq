@@ -71,7 +71,68 @@ export const whatsapp = {
     faq: "Hola! Tengo una consulta que no encontré en las preguntas frecuentes.",
     footer: "Hola! Quiero coordinar una reunión de relevamiento.",
     fab: "Hola! Quiero coordinar una reunión de relevamiento.",
+    servicioDisenoPlanos: "Hola! Quiero consultar por el diseño y los planos de obra.",
+    servicioTramitacionMunicipal: "Hola! Quiero consultar por la tramitación municipal de mi proyecto.",
+    servicioDireccionTecnica: "Hola! Quiero consultar por la dirección técnica de una obra.",
+    servicioManoObraElectrica: "Hola! Quiero consultar por la mano de obra eléctrica.",
+    servicioManoObraSanitaria: "Hola! Quiero consultar por la mano de obra sanitaria.",
+    servicioManoObraAlbanileria: "Hola! Quiero consultar por la mano de obra de albañilería.",
+    servicioConstruccionEtapas: "Hola! Quiero consultar cómo funciona la construcción en etapas.",
+    servicioLlaveEnMano: "Hola! Quiero consultar por una construcción llave en mano.",
   },
+} as const;
+
+export type ServicioWhatsApp = {
+  label: string;
+  mensajeKey: keyof typeof whatsapp.mensajes;
+  ctaName: string;
+};
+
+export const serviciosWhatsApp = {
+  individuales: [
+    {
+      label: "Diseño y planos de obra",
+      mensajeKey: "servicioDisenoPlanos",
+      ctaName: "servicio_diseno_planos",
+    },
+    {
+      label: "Tramitación municipal",
+      mensajeKey: "servicioTramitacionMunicipal",
+      ctaName: "servicio_tramitacion_municipal",
+    },
+    {
+      label: "Dirección técnica",
+      mensajeKey: "servicioDireccionTecnica",
+      ctaName: "servicio_direccion_tecnica",
+    },
+    {
+      label: "Mano de obra eléctrica",
+      mensajeKey: "servicioManoObraElectrica",
+      ctaName: "servicio_mano_obra_electrica",
+    },
+    {
+      label: "Mano de obra sanitaria",
+      mensajeKey: "servicioManoObraSanitaria",
+      ctaName: "servicio_mano_obra_sanitaria",
+    },
+    {
+      label: "Mano de obra de albañilería",
+      mensajeKey: "servicioManoObraAlbanileria",
+      ctaName: "servicio_mano_obra_albanileria",
+    },
+  ] satisfies ServicioWhatsApp[],
+  modalidades: [
+    {
+      label: "Construcción en etapas",
+      mensajeKey: "servicioConstruccionEtapas",
+      ctaName: "servicio_construccion_etapas",
+    },
+    {
+      label: "Llave en mano",
+      mensajeKey: "servicioLlaveEnMano",
+      ctaName: "servicio_llave_en_mano",
+    },
+  ] satisfies ServicioWhatsApp[],
 } as const;
 
 /**
@@ -79,7 +140,7 @@ export const whatsapp = {
  * acá para que Hero.tsx no hardcodee el path ni el alt de la imagen LCP.
  */
 export const heroImage = {
-  src: "/images/hero/anteproyecto-hormigon-pileta.webp",
+  src: "/images/hero/hero-image.webp",
   alt: "Render de anteproyecto residencial de Furiassi Arquitectos: vivienda de hormigón visto con pileta, Mendoza",
 } as const;
 
