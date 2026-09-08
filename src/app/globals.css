@@ -811,6 +811,12 @@ a {
   background: var(--cream-2);
 }
 
+.section-espresso {
+  padding: var(--section-py) 0;
+  background: var(--espresso);
+  color: var(--cream);
+}
+
 .section-header {
   max-width: 640px;
   margin-bottom: 64px;
@@ -833,6 +839,10 @@ a {
 .section-h2 em {
   font-style: italic;
   color: var(--gold);
+}
+
+.obras-title {
+  color: var(--cream);
 }
 
 .section-sub {
@@ -1514,52 +1524,27 @@ a {
   overflow: hidden;
 }
 
-.obra-placeholder {
+.obra-image {
   position: absolute;
   inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   transition: transform 0.6s ease;
-  background: linear-gradient(135deg, #2a2318 0%, #4a3f32 55%, #6a5f50 100%);
+  object-fit: cover;
 }
 
-.obra-card:nth-child(3n + 2) .obra-placeholder {
-  background: linear-gradient(135deg, #3a3228 0%, #5a4f40 100%);
-}
-
-.obra-card:nth-child(3n + 3) .obra-placeholder {
-  background: linear-gradient(135deg, #4a4035 0%, #2e2820 100%);
-}
-
-.obra-card:hover .obra-placeholder,
-.obra-card:focus-visible .obra-placeholder {
+.obra-card:hover .obra-image,
+.obra-card:focus-visible .obra-image {
   transform: scale(1.04);
-}
-
-.obra-placeholder-icon {
-  font-family: var(--font-display), serif;
-  font-size: 36px;
-  color: rgba(255, 255, 255, 0.08);
 }
 
 .obra-caption {
   position: relative;
   background: linear-gradient(to top, rgba(19, 16, 9, 0.92) 0%, rgba(19, 16, 9, 0.55) 100%);
-  padding: 16px 20px;
+  padding: 14px 20px 16px;
   display: flex;
   flex-direction: column;
-  gap: 2px;
 }
 
-.obra-title {
-  font-family: var(--font-display), serif;
-  font-size: 19px;
-  font-weight: 400;
-  color: var(--cream);
-}
-
-.obra-meta {
+.obra-location {
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1567,17 +1552,6 @@ a {
   font-family: var(--font-mono), monospace;
   display: flex;
   flex-wrap: wrap;
-  gap: 4px 10px;
-}
-
-.obra-badge-pendiente {
-  display: inline-block;
-  font-family: var(--font-mono), monospace;
-  font-size: 9px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--gold-l);
-  margin-top: 4px;
 }
 
 .obra-arrow {
@@ -1773,21 +1747,25 @@ a {
 
 .resenas-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 20px;
 }
 
 .resena-card {
   display: flex;
   flex-direction: column;
-  background: var(--cream-2);
+  background: #fff;
   border: 1px solid var(--cream-3);
+  border-top: 3px solid var(--gold);
+  box-shadow: 0 12px 28px rgba(42, 35, 24, 0.1);
   padding: 28px;
   min-height: 220px;
 }
 
 .resena-card--featured {
   min-height: 0;
+  grid-column: 1 / -1;
+  box-shadow: 0 16px 36px rgba(42, 35, 24, 0.15);
 }
 
 .resena-card-header {
@@ -1829,7 +1807,7 @@ a {
   font-weight: 300;
   font-style: italic;
   line-height: 1.65;
-  color: var(--espresso);
+  color: var(--black);
   margin: 0;
 }
 
@@ -1846,6 +1824,29 @@ a {
 
 .resenas-cta {
   margin-top: 32px;
+}
+
+.resenas-google-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--espresso);
+  padding: 15px 22px;
+  color: var(--espresso);
+  background: transparent;
+  transition: color 0.25s, background 0.25s;
+}
+
+.resenas-google-link:hover {
+  color: var(--cream);
+  background: var(--espresso);
+  border-color: var(--espresso);
+}
+
+.google-icon {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
 }
 
 @media (min-width: 861px) {
@@ -2399,6 +2400,7 @@ a {
   .diferenciales,
   .section-cream,
   .section-cream-2,
+  .section-espresso,
   .modalidades-section,
   .etapas,
   .sustentabilidad-section,
@@ -2426,6 +2428,10 @@ a {
     --section-bg: var(--cream);
   }
 
+  .section-espresso {
+    --section-bg: var(--espresso);
+  }
+
   .section-cream-2,
   .etapas {
     --section-bg: var(--cream-2);
@@ -2442,6 +2448,7 @@ a {
   .diferenciales::before,
   .section-cream::before,
   .section-cream-2::before,
+  .section-espresso::before,
   .modalidades-section::before,
   .etapas::before,
   .sustentabilidad-section::before,
@@ -2469,6 +2476,7 @@ a {
   .diferenciales > *,
   .section-cream > *,
   .section-cream-2 > *,
+  .section-espresso > *,
   .modalidades-section > *,
   .etapas > *,
   .sustentabilidad-section > *,

@@ -3,8 +3,8 @@ export type Modalidad = "Llave en mano" | "Por etapas" | "Proyecto y dirección"
 export type ImagenObra = {
   src: string;
   alt: string;
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
 };
 
 export type Obra = {

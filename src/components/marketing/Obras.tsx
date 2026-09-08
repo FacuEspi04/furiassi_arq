@@ -8,12 +8,12 @@ export function Obras() {
   const obras = getObras();
 
   return (
-    <section id="obras" className="section-cream">
+    <section id="obras" className="section-espresso grain">
       <div className="container">
         <Reveal className="obras-header">
           <div>
             <p className="section-eyebrow">Portfolio</p>
-            <h2 className="section-h2" style={{ marginBottom: 0 }}>
+            <h2 className="section-h2 obras-title" style={{ marginBottom: 0 }}>
               Obras realizadas en Mendoza
             </h2>
           </div>
@@ -28,6 +28,7 @@ export function Obras() {
         <div style={{ marginTop: 40 }}>
           <GhostLinkButton
             href={buildWhatsappUrl("obras")}
+            className="btn-ghost--light"
             target="_blank"
             rel="noopener noreferrer"
           >
