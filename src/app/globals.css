@@ -485,6 +485,10 @@ a {
   margin-bottom: 44px;
 }
 
+.hero-sub--supporting {
+  margin-top: -24px;
+}
+
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -678,6 +682,14 @@ a {
 @media (max-width: 860px) {
   .hero {
     grid-template-columns: 1fr;
+  }
+
+  .hero-left {
+    padding-top: 36px;
+  }
+
+  .hero-sub--supporting {
+    margin-bottom: 24px;
   }
 
   .hero-actions {
@@ -949,6 +961,19 @@ a {
   .servicio-link {
     min-height: 64px;
     padding: 12px 8px;
+  }
+
+  .servicios-modalidades {
+    gap: 12px;
+  }
+
+  .servicio-modalidad {
+    min-height: 116px;
+    padding: 24px 26px;
+  }
+
+  .servicio-modalidad h3 {
+    font-size: 25px;
   }
 }
 

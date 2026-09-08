@@ -20,9 +20,7 @@ export function Hero() {
         <p className="hero-sub">
           Desde el diseño hasta la entrega llave en mano, nos ocupamos de planificar, controlar y ejecutar cada etapa, optimizando costos y tiempos, obteniendo eficientes resultados de obra.
         </p>
-        <p className="hero-sub">
-          Garantía certificada · Asesoramiento para la obtención de Créditos. Profesionales con experiencia  
-        </p>
+        <p className="hero-sub hero-sub--supporting">Garantía certificada · Asesoramiento para la obtención de Créditos. Profesionales con experiencia</p>
 
         <div className="hero-actions">
           <SecondaryLinkButton
