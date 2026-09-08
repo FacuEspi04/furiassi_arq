@@ -359,10 +359,10 @@ a {
 }
 
 .hero-left {
-  padding: clamp(60px, 8vw, 120px) var(--pad-x);
+  padding: clamp(20px, 3vw, 44px) var(--pad-x);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   position: relative;
   z-index: 2;
 }
@@ -1773,21 +1773,54 @@ a {
 
 .resenas-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   gap: 20px;
 }
 
 .resena-card {
+  display: flex;
+  flex-direction: column;
   background: var(--cream-2);
   border: 1px solid var(--cream-3);
-  padding: 32px;
+  padding: 28px;
+  min-height: 220px;
+}
+
+.resena-card--featured {
+  min-height: 0;
+}
+
+.resena-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.resena-avatar {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--espresso);
+  color: var(--cream);
+  font-family: var(--font-display), serif;
+  font-size: 20px;
+}
+
+.resena-card--featured .resena-avatar {
+  background: var(--gold);
 }
 
 .resena-stars {
   color: var(--gold);
   font-size: 12px;
   letter-spacing: 3px;
-  margin-bottom: 18px;
+  line-height: 1;
+  margin-top: 6px;
 }
 
 .resena-text {
@@ -1797,7 +1830,12 @@ a {
   font-style: italic;
   line-height: 1.65;
   color: var(--espresso);
-  margin-bottom: 24px;
+  margin: 0;
+}
+
+.resena-card--featured .resena-text {
+  font-size: clamp(22px, 2.4vw, 30px);
+  line-height: 1.35;
 }
 
 .resena-author-name {
@@ -1806,12 +1844,14 @@ a {
   color: var(--espresso);
 }
 
-.resena-author-loc {
-  font-family: var(--font-mono), monospace;
-  font-size: 10px;
-  color: var(--stone);
-  letter-spacing: 0.1em;
-  margin-top: 2px;
+.resenas-cta {
+  margin-top: 32px;
+}
+
+@media (min-width: 861px) {
+  .resenas-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 860px) {
@@ -1825,6 +1865,11 @@ a {
   }
   .resenas-grid {
     grid-template-columns: 1fr;
+  }
+
+  .resena-card {
+    min-height: 0;
+    padding: 24px;
   }
 }
 
@@ -2344,6 +2389,106 @@ a {
 .js .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (min-width: 861px) {
+  :root {
+    --section-py: clamp(56px, 7vw, 80px);
+  }
+
+  .diferenciales,
+  .section-cream,
+  .section-cream-2,
+  .modalidades-section,
+  .etapas,
+  .sustentabilidad-section,
+  .estudio-section,
+  .proceso,
+  .contacto,
+  .site-footer {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .diferenciales,
+  .modalidades-section,
+  .estudio-section,
+  .contacto {
+    --section-bg: var(--espresso);
+  }
+
+  .site-footer {
+    --section-bg: var(--black);
+  }
+
+  .section-cream,
+  .proceso {
+    --section-bg: var(--cream);
+  }
+
+  .section-cream-2,
+  .etapas {
+    --section-bg: var(--cream-2);
+  }
+
+  .sustentabilidad-section {
+    --section-bg: color-mix(in srgb, var(--cream-2), var(--sage) 7%);
+  }
+
+  .contacto {
+    padding-top: clamp(40px, 5vw, 64px);
+  }
+
+  .diferenciales::before,
+  .section-cream::before,
+  .section-cream-2::before,
+  .modalidades-section::before,
+  .etapas::before,
+  .sustentabilidad-section::before,
+  .estudio-section::before,
+  .proceso::before,
+  .contacto::before,
+  .site-footer::before {
+    content: "";
+    position: absolute;
+    top: -24px;
+    left: 0;
+    right: 0;
+    height: 48px;
+    z-index: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      var(--section-bg) 70%,
+      var(--section-bg) 100%
+    );
+    filter: blur(7px);
+  }
+
+  .diferenciales > *,
+  .section-cream > *,
+  .section-cream-2 > *,
+  .modalidades-section > *,
+  .etapas > *,
+  .sustentabilidad-section > *,
+  .estudio-section > *,
+  .proceso > *,
+  .contacto > *,
+  .site-footer > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .contacto > .contacto-watermark {
+    position: absolute;
+    z-index: 0;
+  }
+
+  .contacto > .container {
+    position: relative;
+    z-index: 1;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

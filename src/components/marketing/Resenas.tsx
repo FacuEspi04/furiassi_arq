@@ -1,13 +1,10 @@
-import { getResenas } from "@/content/resenas";
-import { site } from "@/content/site";
+import { site, testimonials } from "@/content/site";
 import { GhostLinkButton } from "@/components/ui/Button";
 import { Reveal } from "@/components/marketing/Reveal";
 
 const ESTRELLAS = "★★★★★";
 
 export function Resenas() {
-  const resenas = getResenas();
-
   return (
     <section id="resenas" className="section-cream">
       <div className="container">
@@ -26,37 +23,37 @@ export function Resenas() {
           </div>
         </Reveal>
 
-        {resenas.length > 0 ? (
-          <div className="resenas-grid">
-            {resenas.map((resena) => (
-              <div className="resena-card" key={resena.id}>
-                <p className="resena-stars" aria-hidden="true">
-                  {ESTRELLAS.slice(0, resena.rating)}
-                </p>
-                <p className="resena-text">&ldquo;{resena.texto}&rdquo;</p>
-                <p className="resena-author-name">{resena.autor}</p>
-                <p className="resena-author-loc">
-                  {resena.localidad} · {resena.anio}
-                </p>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div className="resenas-empty">
-            <p>
-              Estamos incorporando el texto de las reseñas reales desde
-              nuestro perfil de Google Business. Mientras tanto, podés
-              verlas directamente en Google.
-            </p>
-            <GhostLinkButton
-              href={site.googleMapsDireccionesUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+        <div className="resenas-grid grid grid-cols-1 gap-5 md:grid-cols-2">
+          {testimonials.map((testimonial) => (
+            <article
+              className={`resena-card ${testimonial.featured ? "resena-card--featured md:col-span-2" : ""}`}
+              key={testimonial.id}
             >
-              Ver reseñas en Google
-            </GhostLinkButton>
-          </div>
-        )}
+              <div className="resena-card-header">
+                <span className="resena-avatar" aria-hidden="true">
+                  {testimonial.name.charAt(0)}
+                </span>
+                <div>
+                  <p className="resena-author-name">{testimonial.name}</p>
+                  <p className="resena-stars" aria-label={`${testimonial.rating} de 5 estrellas`}>
+                    {ESTRELLAS.slice(0, testimonial.rating)}
+                  </p>
+                </div>
+              </div>
+              <p className="resena-text">&ldquo;{testimonial.text}&rdquo;</p>
+            </article>
+          ))}
+        </div>
+
+        <div className="resenas-cta">
+          <GhostLinkButton
+            href={site.googleMapsDireccionesUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ver reseñas en Google
+          </GhostLinkButton>
+        </div>
       </div>
     </section>
   );

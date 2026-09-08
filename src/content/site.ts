@@ -56,6 +56,37 @@ export const site = {
   anioFundacion: 2013,
 } as const;
 
+export const testimonials = [
+  {
+    id: "pablo-garcia",
+    name: "Pablo García",
+    rating: 5,
+    text: "Son profesionales muy comprometidos y responsables, acompañando en cada parte del proceso con gran predisposición. En mi caso han supervisado cada paso de la obra, controlando la calidad y ejecución de los trabajos realizados, aportando ideas y mejoras ante eventuales dudas que surgen en el proceso.",
+    featured: true,
+  },
+  {
+    id: "nicolas-lucesole",
+    name: "Nicolás Lucesole",
+    rating: 5,
+    text: "Excelente profesional, muy dedicado a los proyectos que lleva a cabo.",
+    featured: false,
+  },
+  {
+    id: "mario-cuello",
+    name: "Mario Cuello",
+    rating: 5,
+    text: "Excelente atención. Nos asesoraron y trabajaron con mucha calidad y dedicación. Muy recomendables.",
+    featured: false,
+  },
+  {
+    id: "waldo-salcedo",
+    name: "Waldo Salcedo",
+    rating: 5,
+    text: "Profesionalismo, seriedad, asesoramiento y dedicación en el proyecto.",
+    featured: false,
+  },
+] as const;
+
 /**
  * Mensajes de WhatsApp prellenados por sección de origen, para poder
  * identificar de dónde vino el lead con solo mirar el mensaje entrante.
