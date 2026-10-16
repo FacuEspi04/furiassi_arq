@@ -10,8 +10,8 @@ export const site = {
   descripcionCorta:
     "Estudio de arquitectura residencial y constructora en Mendoza. Diseño a medida, construcción llave en mano o por etapas, con foco en sustentabilidad y garantía escrita.",
   url: "https://furiassiarquitectos.com",
-  telefono: "+54 9 261 366 9285",
-  telefonoE164: "+5492613669285",
+  telefono: "+54 9 261 707 5728",
+  telefonoE164: "+5492617075728",
   // TODO: el cliente solo confirmó este email (@hotmail.com); pidió reemplazarlo
   // por uno con dominio propio pero no llegó a proveerlo. Ver README > riesgos.
   email: "arqsebastianfuriassi@hotmail.com",
@@ -92,7 +92,7 @@ export const testimonials = [
  * identificar de dónde vino el lead con solo mirar el mensaje entrante.
  */
 export const whatsapp = {
-  numero: "5492613669285",
+  numero: "5492617075728",
   mensajes: {
     nav: "Hola! Vi su web y quiero cotizar un proyecto.",
     heroPresupuesto: "Hola! Quiero obtener un presupuesto de obra para mi proyecto.",
