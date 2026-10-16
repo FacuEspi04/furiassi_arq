@@ -26,6 +26,7 @@ export default function GraciasPage() {
         <div style={{ display: "flex", gap: 24, justifyContent: "center", flexWrap: "wrap" }}>
           <PrimaryLinkButton
             href={buildWhatsappUrl("footer")}
+            data-whatsapp-origen="gracias"
             target="_blank"
             rel="noopener noreferrer"
           >

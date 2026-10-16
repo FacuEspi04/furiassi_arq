@@ -28,6 +28,7 @@ export function Obras() {
         <div style={{ marginTop: 40 }}>
           <GhostLinkButton
             href={buildWhatsappUrl("obras")}
+            data-whatsapp-origen="obras"
             className="btn-ghost--light"
             target="_blank"
             rel="noopener noreferrer"

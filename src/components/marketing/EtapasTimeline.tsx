@@ -56,6 +56,7 @@ export function EtapasTimeline() {
         <div style={{ marginTop: 48 }}>
           <GhostLinkButton
             href={buildWhatsappUrl("etapas")}
+            data-whatsapp-origen="etapas"
             target="_blank"
             rel="noopener noreferrer"
           >

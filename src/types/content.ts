@@ -58,4 +58,5 @@ export type WhatsappOrigen =
   | "obras"
   | "faq"
   | "footer"
+  | "gracias"
   | "fab";

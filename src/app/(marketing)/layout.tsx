@@ -1,6 +1,7 @@
 import { Nav } from "@/components/marketing/Nav";
 import { Footer } from "@/components/marketing/Footer";
 import { WhatsappFab } from "@/components/marketing/WhatsappFab";
+import { WhatsappClickTracker } from "@/components/marketing/WhatsappClickTracker";
 
 export default function MarketingLayout({
   children,
@@ -13,6 +14,7 @@ export default function MarketingLayout({
       <main id="main">{children}</main>
       <Footer />
       <WhatsappFab />
+      <WhatsappClickTracker />
     </>
   );
 }

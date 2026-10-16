@@ -19,6 +19,7 @@ export function Faq() {
             </p>
             <a
               href={buildWhatsappUrl("faq")}
+              data-whatsapp-origen="faq"
               className="faq-cta-link"
               target="_blank"
               rel="noopener noreferrer"
