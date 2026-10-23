@@ -497,6 +497,13 @@ a {
   margin-bottom: 16px;
 }
 
+.btn-creditos {
+  width: fit-content;
+  max-width: 100%;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
 .btn-secondary {
   font-family: var(--font-body), sans-serif;
   font-size: 12px;
@@ -577,6 +584,7 @@ a {
   .hero-kicker,
   .hero-h1,
   .hero-sub,
+  .btn-creditos,
   .hero-actions,
   .hero-stats {
     opacity: 0;
@@ -591,6 +599,9 @@ a {
   }
   .hero-sub {
     animation-delay: 0.34s;
+  }
+  .btn-creditos {
+    animation-delay: 0.4s;
   }
   .hero-actions {
     animation-delay: 0.46s;
@@ -690,6 +701,11 @@ a {
 
   .hero-sub--supporting {
     margin-bottom: 24px;
+  }
+
+  .btn-creditos {
+    width: 100%;
+    margin-bottom: 12px;
   }
 
   .hero-actions {

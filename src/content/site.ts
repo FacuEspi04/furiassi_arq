@@ -96,7 +96,8 @@ export const whatsapp = {
   mensajes: {
     nav: "Hola! Vi su web y quiero cotizar un proyecto.",
     heroPresupuesto: "Hola! Quiero obtener un presupuesto de obra para mi proyecto.",
-    heroPlanos: "Hola! Quiero cotizar el diseño y los planos de mi proyecto.",
+    heroCreditos: "Hola! Quiero asesoramiento para créditos hipotecarios y construcción.",
+    heroPlanos:"Hola! Quiero cotizar el diseño y los planos de mi proyecto.",
     etapas: "Hola! Quiero entender cómo funciona la construcción por etapas.",
     obras: "Hola! Vi las obras y quiero consultar por un proyecto similar.",
     faq: "Hola! Tengo una consulta que no encontré en las preguntas frecuentes.",

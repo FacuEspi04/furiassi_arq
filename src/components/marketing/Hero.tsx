@@ -20,7 +20,19 @@ export function Hero() {
         <p className="hero-sub">
           Desde el diseño hasta la entrega llave en mano, nos ocupamos de planificar, controlar y ejecutar cada etapa, optimizando costos y tiempos, obteniendo eficientes resultados de obra.
         </p>
-        <p className="hero-sub hero-sub--supporting">Garantía certificada · Asesoramiento para la obtención de Créditos. Profesionales con experiencia</p>
+        <p className="hero-sub hero-sub--supporting">Garantía certificada</p>
+
+        <PrimaryLinkButton
+          href={buildWhatsappUrl("heroCreditos")}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-creditos"
+          data-cta="whatsapp_hero_creditos"
+          onClick={() => trackWhatsappClick("heroCreditos")}
+          withArrow={false}
+        >
+          Asesoramiento para créditos hipotecarios y construcción
+        </PrimaryLinkButton>
 
         <div className="hero-actions">
           <SecondaryLinkButton
