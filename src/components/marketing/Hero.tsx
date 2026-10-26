@@ -18,10 +18,9 @@ export function Hero() {
         </h1>
 
         <p className="hero-sub">
-          Desde el diseño hasta la entrega llave en mano, nos ocupamos de planificar, controlar y ejecutar cada etapa, optimizando costos y tiempos, obteniendo eficientes resultados de obra.
+          Desde el diseño hasta la entrega llave en mano, nos ocupamos de planificar, controlar y ejecutar cada etapa, optimizando costos y tiempos, obteniendo eficientes resultados de obra. Garantía certificada.
         </p>
-        <p className="hero-sub hero-sub--supporting">Garantía certificada</p>
-
+        
         <PrimaryLinkButton
           href={buildWhatsappUrl("heroCreditos")}
           target="_blank"
