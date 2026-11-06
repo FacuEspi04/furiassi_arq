@@ -30,14 +30,25 @@ type FetchOptions = Parameters<typeof live.sanityFetch>[0];
 /**
  * Wrapper de `sanityFetch`: suma el tag común y, si Sanity no está
  * configurado, devuelve `null` sin hacer ningún request.
+ *
+ * `soloPublicado: true` fija la consulta al contenido publicado y sin la
+ * codificación del modo edición. Es obligatorio en lo que corre durante el
+ * build sin request (generateStaticParams, sitemap): sin eso next-sanity
+ * consulta `draftMode()` para decidir, y Next no lo permite ahí.
  */
 export async function sanityFetch<T>(
-  options: Pick<FetchOptions, "query" | "params">
+  options: Pick<FetchOptions, "query" | "params"> & { soloPublicado?: boolean }
 ): Promise<T | null> {
   if (!sanityConfigurado) return null;
 
+  const { soloPublicado, ...consulta } = options;
+
   try {
-    const { data } = await live.sanityFetch({ ...options, tags: [SANITY_TAG] });
+    const { data } = await live.sanityFetch({
+      ...consulta,
+      tags: [SANITY_TAG],
+      ...(soloPublicado ? { perspective: "published" as const, stega: false } : {}),
+    });
     return data as T;
   } catch (error) {
     // Una caída de Sanity no tiene que tirar abajo la landing: se loguea y

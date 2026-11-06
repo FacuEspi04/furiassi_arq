@@ -89,9 +89,14 @@ export async function getArticulo(slug: string): Promise<Articulo | null> {
   };
 }
 
+/**
+ * Slugs publicados, para generateStaticParams y el sitemap. Corre durante
+ * el build, por eso pide solo contenido publicado (ver `soloPublicado`).
+ */
 export async function getArticulosParaSitemap(): Promise<{ slug: string; actualizado: string }[]> {
   const data = await sanityFetch<{ slug: string; _updatedAt: string }[]>({
     query: ARTICULOS_SITEMAP_QUERY,
+    soloPublicado: true,
   });
   return (data ?? []).map((a) => ({ slug: a.slug, actualizado: a._updatedAt }));
 }
