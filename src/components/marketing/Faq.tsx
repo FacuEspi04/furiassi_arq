@@ -1,9 +1,9 @@
-import { getFaq } from "@/content/faq";
+import { getFaq } from "@/content/cms/faq";
 import { buildWhatsappUrl } from "@/lib/whatsapp";
 import { FaqAnalytics } from "@/components/marketing/FaqAnalytics";
 
-export function Faq() {
-  const faq = getFaq();
+export async function Faq() {
+  const faq = await getFaq();
 
   return (
     <section id="faq" className="section-cream-2">

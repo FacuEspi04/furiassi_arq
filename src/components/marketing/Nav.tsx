@@ -1,15 +1,18 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { site } from "@/content/site";
 import { buildWhatsappUrl } from "@/lib/whatsapp";
 import { trackWhatsappClick } from "@/lib/analytics";
 import { BrandMark } from "@/components/ui/BrandMark";
 
+// Con "/" adelante para que funcionen también desde /blog.
 const links = [
-  { href: "#servicios", label: "Servicios" },
-  { href: "#obras", label: "Obras" },
-  { href: "#contacto", label: "Contacto" },
+  { href: "/#servicios", label: "Servicios" },
+  { href: "/#obras", label: "Obras" },
+  { href: "/blog", label: "Artículos" },
+  { href: "/#contacto", label: "Contacto" },
 ];
 
 export function Nav() {
@@ -73,7 +76,7 @@ export function Nav() {
     <>
       <div ref={sentinelRef} aria-hidden="true" style={{ position: "absolute", top: 0, height: 1 }} />
       <nav className={scrolled ? "site-nav is-scrolled" : "site-nav"}>
-        <a href="#inicio" className="nav-logo">
+        <Link href="/#inicio" className="nav-logo">
           <span className="nav-logo-mark">
             <BrandMark />
           </span>
@@ -81,12 +84,12 @@ export function Nav() {
             {site.nombre}
             <span>Mendoza · Argentina</span>
           </span>
-        </a>
+        </Link>
 
         <ul className="nav-links">
           {links.map((link) => (
             <li key={link.href}>
-              <a href={link.href}>{link.label}</a>
+              <Link href={link.href}>{link.label}</Link>
             </li>
           ))}
         </ul>
@@ -142,9 +145,9 @@ export function Nav() {
             aria-label="Menú de navegación"
           >
             {links.map((link) => (
-              <a key={link.href} href={link.href} onClick={() => setOpen(false)}>
+              <Link key={link.href} href={link.href} onClick={() => setOpen(false)}>
                 {link.label}
-              </a>
+              </Link>
             ))}
             <a
               href={buildWhatsappUrl("nav")}

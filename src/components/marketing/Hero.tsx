@@ -1,25 +1,27 @@
 "use client";
 
 import Image from "next/image";
-import { site, heroImage } from "@/content/site";
+import { site } from "@/content/site";
+import type { ContenidoInicio } from "@/types/content";
 import { buildWhatsappUrl } from "@/lib/whatsapp";
 import { trackWhatsappClick } from "@/lib/analytics";
 import { SecondaryLinkButton, PrimaryLinkButton } from "@/components/ui/Button";
 import { BrandMark } from "@/components/ui/BrandMark";
 
-export function Hero() {
+export function Hero({ contenido }: { contenido: ContenidoInicio }) {
+  const { imagen } = contenido;
+
   return (
     <section id="inicio" className="hero">
       <div className="hero-left">
-        <p className="hero-kicker">Arquitectura residencial</p>
+        <p className="hero-kicker">{contenido.kicker}</p>
 
         <h1 className="hero-h1">
-          Construimos tu proyecto.<em> Vos disfrutas el resultado.</em>
+          {contenido.titulo}
+          {contenido.tituloEnfasis && <em> {contenido.tituloEnfasis}</em>}
         </h1>
 
-        <p className="hero-sub">
-          Desde el diseño hasta la entrega llave en mano, nos ocupamos de planificar, controlar y ejecutar cada etapa, optimizando costos y tiempos, obteniendo eficientes resultados de obra. Garantía certificada.
-        </p>
+        <p className="hero-sub">{contenido.subtitulo}</p>
         
         <PrimaryLinkButton
           href={buildWhatsappUrl("heroCreditos")}
@@ -30,7 +32,7 @@ export function Hero() {
           onClick={() => trackWhatsappClick("heroCreditos")}
           withArrow={false}
         >
-          Asesoramiento para créditos hipotecarios y construcción
+          {contenido.botonCreditos}
         </PrimaryLinkButton>
 
         <div className="hero-actions">
@@ -41,7 +43,7 @@ export function Hero() {
             data-cta="whatsapp_hero_presupuesto"
             onClick={() => trackWhatsappClick("heroPresupuesto")}
           >
-            Obtener presupuesto de obra
+            {contenido.botonPresupuesto}
           </SecondaryLinkButton>
           <PrimaryLinkButton
             href={buildWhatsappUrl("heroPlanos")}
@@ -51,7 +53,7 @@ export function Hero() {
             onClick={() => trackWhatsappClick("heroPlanos")}
             withArrow={false}
           >
-            Cotizar los planos de mi proyecto
+            {contenido.botonPlanos}
           </PrimaryLinkButton>
         </div>
         <a href="#obras" className="text-link">Ver obras</a>
@@ -76,13 +78,14 @@ export function Hero() {
 
       <div className="hero-right">
         <Image
-          src={heroImage.src}
-          alt={heroImage.alt}
+          src={imagen.src}
+          alt={imagen.alt}
           fill
           priority
           quality={90}
           sizes="(max-width: 860px) 100vw, 50vw"
           className="hero-right-image"
+          style={imagen.objectPosition ? { objectPosition: imagen.objectPosition } : undefined}
         />
         <div className="hero-right-overlay" aria-hidden="true" />
         <div className="hero-right-overlay-edge" aria-hidden="true" />

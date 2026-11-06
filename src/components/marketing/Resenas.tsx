@@ -1,4 +1,5 @@
-import { site, testimonials } from "@/content/site";
+import { site } from "@/content/site";
+import { getTestimonios } from "@/content/cms/testimonios";
 import { GhostLinkButton } from "@/components/ui/Button";
 import { Reveal } from "@/components/marketing/Reveal";
 
@@ -15,7 +16,9 @@ function GoogleIcon() {
   );
 }
 
-export function Resenas() {
+export async function Resenas() {
+  const testimonials = await getTestimonios();
+
   return (
     <section id="resenas" className="section-cream">
       <div className="container">

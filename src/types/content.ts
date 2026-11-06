@@ -5,6 +5,40 @@ export type ImagenObra = {
   alt: string;
   width?: number;
   height?: number;
+  /** `object-position` CSS derivado del punto de interés marcado en el CMS. */
+  objectPosition?: string;
+};
+
+/** Textos y foto del Hero, editables desde el panel (documento "inicio"). */
+export type ContenidoInicio = {
+  kicker: string;
+  titulo: string;
+  tituloEnfasis?: string;
+  subtitulo: string;
+  botonCreditos: string;
+  botonPresupuesto: string;
+  botonPlanos: string;
+  imagen: ImagenObra;
+};
+
+export type Testimonio = {
+  id: string;
+  name: string;
+  rating: number;
+  text: string;
+  featured: boolean;
+};
+
+export type ArticuloResumen = {
+  id: string;
+  titulo: string;
+  slug: string;
+  extracto: string;
+  categoria: string;
+  categoriaLabel: string;
+  /** ISO 8601 */
+  fechaPublicacion: string;
+  portada: ImagenObra | null;
 };
 
 export type Obra = {
@@ -60,4 +94,5 @@ export type WhatsappOrigen =
   | "faq"
   | "footer"
   | "gracias"
+  | "blog"
   | "fab";

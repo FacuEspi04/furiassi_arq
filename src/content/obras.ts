@@ -61,6 +61,9 @@ const obras: Obra[] = obrasReales.map((obra, i) => ({
   pendienteConfirmacion: true,
 }));
 
-export function getObras(): Obra[] {
-  return obras;
-}
+/**
+ * Obras actuales: respaldo cuando el panel (Sanity) no está configurado o no
+ * tiene obras cargadas, y punto de partida del script de migración.
+ * Para leer las obras usar `getObras()` de content/cms/obras.ts.
+ */
+export const obrasLocales = obras;

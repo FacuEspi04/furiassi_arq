@@ -103,6 +103,7 @@ export const whatsapp = {
     faq: "Hola! Tengo una consulta que no encontré en las preguntas frecuentes.",
     footer: "Hola! Quiero coordinar una reunión de relevamiento.",
     fab: "Hola! Quiero coordinar una reunión de relevamiento.",
+    blog: "Hola! Leí un artículo en su web y quiero hacer una consulta.",
     servicioDisenoPlanos: "Hola! Quiero consultar por el diseño y los planos de obra.",
     servicioTramitacionMunicipal: "Hola! Quiero consultar por la tramitación municipal de mi proyecto.",
     servicioDireccionTecnica: "Hola! Quiero consultar por la dirección técnica de una obra.",

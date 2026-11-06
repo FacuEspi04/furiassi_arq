@@ -63,6 +63,8 @@ const faq: FaqItem[] = [
   },
 ];
 
-export function getFaq(): FaqItem[] {
-  return faq;
-}
+/**
+ * Preguntas actuales: respaldo cuando el panel no tiene preguntas cargadas.
+ * Para leerlas usar `getFaq()` de content/cms/faq.ts.
+ */
+export const faqLocal = faq;

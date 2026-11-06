@@ -1,6 +1,6 @@
 # Furiassi Arquitectos — landing
 
-Landing pública de Furiassi Arquitectos (Mendoza, Argentina), construida en Next.js 16 (App Router) sobre el prototipo aprobado `referencia.html`. 100% estática (SSG), preparada para que las fases de admin y portal de clientes se sumen sin reescribir estos componentes.
+Landing pública de Furiassi Arquitectos (Mendoza, Argentina), construida en Next.js 16 (App Router) sobre el prototipo aprobado `referencia.html`. Estática (SSG), con un blog en `/blog` y un panel de contenidos (Sanity) en `/admin` para que el cliente publique artículos y edite la home sin tocar código.
 
 ## Cómo correrlo
 
@@ -19,18 +19,27 @@ Copiar `.env.example` a `.env.local` y completar:
 |---|---|
 | `RESEND_API_KEY` | Envío de emails del formulario de contacto (resend.com). Sin esto, el formulario muestra un error visible en vez de fallar en silencio. |
 | `RESEND_FROM_EMAIL` | Remitente verificado en Resend. Mientras no haya un dominio propio verificado, usa el remitente de pruebas `onboarding@resend.dev`. |
+| `NEXT_PUBLIC_SANITY_PROJECT_ID` | Proyecto de Sanity del panel. **Sin esta variable el sitio funciona igual** con el contenido local de `src/content/` y `/admin` muestra un aviso. |
+| `NEXT_PUBLIC_SANITY_DATASET` | Dataset de Sanity (`production`). |
+| `SANITY_API_READ_TOKEN` | Token **Viewer** de Sanity. Lo usa el modo edición para mostrar borradores. Solo servidor. |
+| `SANITY_REVALIDATE_SECRET` | Secreto compartido con el webhook de Sanity que actualiza la web al publicar. |
 
 ## Dónde editar cada contenido
 
-Todo el contenido vive en `src/content/` y se consume a través de funciones (`getObras()`, `getFaq()`, etc.), nunca importando los arrays directamente — así, cuando el panel de admin (fase 2) mueva esto a una base de datos, solo cambia la implementación de esas funciones, no los componentes.
+El cliente edita desde el panel (`/admin`): **artículos del blog, textos y foto del Hero, obras, reseñas y preguntas frecuentes**. Los componentes leen ese contenido con las funciones de `src/content/cms/` (`getInicio()`, `getObras()`, `getTestimonios()`, `getFaq()`, `getArticulos()`…). Si Sanity no está configurado o una colección está vacía, cada función devuelve el contenido local de `src/content/*.ts` como respaldo.
+
+El resto (NAP, servicios, tokens de diseño) sigue en el código a propósito.
 
 | Qué | Archivo |
 |---|---|
 | NAP (nombre, dirección, teléfono, geo, horarios, redes) | `src/content/site.ts` — **única fuente de verdad**; nav, footer, JSON-LD y contacto leen de acá |
-| Obras / portfolio | `src/content/obras.ts` — hoy con datos placeholder, ver "Riesgos" |
+| Artículos del blog | Panel `/admin` → Artículos. Páginas en `src/app/(marketing)/blog/`, componentes en `src/components/blog/` |
+| Textos y foto del Hero | Panel `/admin` → Portada (respaldo: `src/content/inicio.ts`) |
+| Obras / portfolio | Panel `/admin` → Obras (respaldo: `src/content/obras.ts`, con datos placeholder, ver "Riesgos") |
+| Reseñas de la home | Panel `/admin` → Reseñas (respaldo: `testimonials` en `src/content/site.ts`) |
 | Servicios | `src/content/servicios.ts` |
-| Preguntas frecuentes | `src/content/faq.ts` |
-| Reseñas individuales | `src/content/resenas.ts` — vacío a propósito, ver "Riesgos" |
+| Preguntas frecuentes | Panel `/admin` → Preguntas frecuentes (respaldo: `src/content/faq.ts`) |
+| Campos del panel (schemas) | `src/sanity/schemaTypes/` · menú lateral en `src/sanity/structure.ts` · configuración en `sanity.config.ts` |
 | Tokens de diseño (paleta, tipografía) | `styles/tokens.css` |
 | Fuentes self-hosted | `src/app/fonts/index.ts` + los `.woff2` en `src/app/fonts/` |
 | Isotipo / marca ("F") | `src/components/ui/BrandMark.tsx` (SVG inline, se usa en nav y como marca de agua en Hero/Estudio/Contacto) + `public/mark.svg`. Favicons por convención de archivo: `src/app/icon.png` y `src/app/apple-icon.png`. Variantes PNG exportadas (fondo transparente, espresso/blanco) en `public/brand/` por si se necesitan fuera de la web (impresos, firma de email, etc.). |
@@ -46,9 +55,33 @@ Todo el contenido vive en `src/content/` y se consume a través de funciones (`g
 
 El resto del presupuesto de performance (Lighthouse, LCP, CLS, peso total <1 MB) no se midió con Lighthouse real en este entorno — recomendado correrlo contra el deploy de Vercel antes de dar por cerrada la fase.
 
+## Panel de contenidos (Sanity)
+
+- **Panel**: Sanity Studio montado en `/admin` (`src/app/admin/[[...tool]]/page.tsx`). Login con cuenta de Sanity (Google o email); los permisos se manejan en sanity.io/manage.
+- **Modo edición**: en el panel, pestaña "Ver y editar la página" (Presentation). Muestra la web real con los borradores y permite hacer clic sobre un texto o una foto para editarlo. Activa draft mode con `/api/draft-mode/enable`. `<VisualEditing />` y `<SanityLive />` se cargan **solo en draft mode** (`src/app/(marketing)/layout.tsx`), así que los visitantes no descargan ese JS.
+- **Actualización al publicar**: todas las consultas llevan el tag `sanity`. Un webhook de Sanity llama a `/api/revalidate`, que invalida ese tag. La próxima visita ya ve el cambio, sin redeploy.
+- **Guía para el cliente**: [`docs/guia-panel.md`](docs/guia-panel.md).
+
+### Puesta en marcha (una sola vez)
+
+1. Crear el proyecto en [sanity.io/manage](https://www.sanity.io/manage) (plan gratis) con el dataset `production`. Copiar el **Project ID**.
+2. En el proyecto → **API → CORS origins**: agregar `http://localhost:3000`, `https://furiassiarquitectos.com` y la URL de Vercel, con **Allow credentials** activado.
+3. En **API → Tokens**: crear un token **Viewer** y cargarlo como `SANITY_API_READ_TOKEN`.
+4. Generar un secreto (`openssl rand -hex 32`) y cargarlo como `SANITY_REVALIDATE_SECRET`.
+5. En **API → Webhooks**: crear un webhook con URL `https://furiassiarquitectos.com/api/revalidate`, método `POST`, triggers create/update/delete, filtro `_type in ["articulo","inicio","obra","resena","preguntaFrecuente"]`, y el mismo secreto en **Secret**.
+6. Cargar las 4 variables en `.env.local` y en Vercel (Production y Preview), y redeployar.
+7. Migrar el contenido actual al panel (sube textos, fotos de obras, reseñas y FAQ; no pisa nada si se corre de nuevo):
+
+   ```bash
+   npx sanity login
+   npx sanity exec scripts/seed-sanity.ts --with-user-token
+   ```
+
+8. En **Members**: invitar al cliente con rol **Editor**.
+
 ## Sección 9 del brief — preparación para fases futuras (documentada, no implementada)
 
-- **Fase 2 (admin)**: route group `(admin)` bajo `/admin`, layout propio. Cuando `getObras()` / `getFaq()` etc. pasen a leer de una base de datos, ningún componente de `src/components/marketing` debería tocarse — ya reciben los datos vía esas funciones, no vía imports directos de los arrays.
+- **Fase 2 (admin)**: resuelta con Sanity (ver "Panel de contenidos"). Si más adelante el portal de clientes necesita auth propia, el Studio sigue en `/admin` con su propio login y no interfiere.
 - **Fase 3 (portal de clientes)**: route group `(portal)` bajo `/portal`.
 - **Auth recomendada**: Auth.js v5 con adaptador de base de datos (o Clerk si se prioriza velocidad). Roles `ADMIN`/`CLIENTE` en el token, autorización en middleware **y** revalidada en cada Server Action.
 - **Base de datos recomendada**: Postgres (Neon o Supabase) con Prisma o Drizzle.
@@ -57,13 +90,13 @@ El resto del presupuesto de performance (Lighthouse, LCP, CLS, peso total <1 MB)
 
 ## Checklist de puesta en producción
 
-- [ ] Confirmar y cargar las fichas de obra reales (ver Riesgos) en `src/content/obras.ts`, quitando `pendienteConfirmacion: true`.
-- [ ] Cargar el texto real de al menos 3–6 reseñas en `src/content/resenas.ts`.
+- [ ] Confirmar y cargar las fichas de obra reales (ver Riesgos) desde el panel, destildando "Datos pendientes de confirmación".
 - [ ] Conseguir `RESEND_API_KEY` y un dominio de envío verificado; setear ambas env vars en Vercel.
 - [ ] Verificar/activar el Google Business Profile (nombre, categoría, fotos, horario) y confirmar que coincide con `content/site.ts`.
 - [ ] Dominio `furiassiarquitectos.com` apuntando al deploy de Vercel; redirect 301 desde `www` y desde el `.vercel.app`.
 - [ ] Validar los 4 JSON-LD en [search.google.com/test/rich-results](https://search.google.com/test/rich-results).
-- [ ] Enviar el sitemap en Google Search Console.
+- [ ] Enviar el sitemap en Google Search Console (incluye `/blog` y cada artículo).
+- [ ] Configurar Sanity (ver "Panel de contenidos > Puesta en marcha") e invitar al cliente como Editor.
 - [ ] Correr Lighthouse mobile real contra el deploy y comparar con los umbrales de la sección 3.
 - [ ] Reemplazar los placeholders de imagen (hero, obras, foto del arquitecto) por los archivos reales — cada lugar tiene un comentario `// TODO` marcando exactamente qué componente de `next/image` va ahí.
 - [ ] Revisión legal de `/aviso-legal` y `/privacidad` (hoy son borradores estructurales).
