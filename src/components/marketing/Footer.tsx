@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { site } from "@/content/site";
 import { BrandMark } from "@/components/ui/BrandMark";
 
@@ -22,6 +23,7 @@ export function Footer() {
           <a href={site.redes.facebook} target="_blank" rel="noopener noreferrer">
             Facebook
           </a>
+          <Link href="/blog">Artículos</Link>
           <a href="/aviso-legal">Aviso legal</a>
           <a href="/privacidad">Privacidad</a>
         </nav>

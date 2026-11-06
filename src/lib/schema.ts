@@ -1,5 +1,5 @@
 import { site } from "@/content/site";
-import { getFaq } from "@/content/faq";
+import { getFaq } from "@/content/cms/faq";
 import { getServicios } from "@/content/servicios";
 
 export function getProfessionalServiceSchema() {
@@ -75,11 +75,12 @@ export function getProfessionalServiceSchema() {
   };
 }
 
-export function getFaqSchema() {
+export async function getFaqSchema() {
+  const faq = await getFaq();
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: getFaq().map((item) => ({
+    mainEntity: faq.map((item) => ({
       "@type": "Question",
       name: item.pregunta,
       acceptedAnswer: {
@@ -116,10 +117,10 @@ export function getWebSiteSchema() {
   };
 }
 
-export function getHomeJsonLd() {
+export async function getHomeJsonLd() {
   return [
     getProfessionalServiceSchema(),
-    getFaqSchema(),
+    await getFaqSchema(),
     getBreadcrumbSchema(),
     getWebSiteSchema(),
   ];

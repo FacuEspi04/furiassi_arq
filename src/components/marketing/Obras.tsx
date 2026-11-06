@@ -1,11 +1,11 @@
-import { getObras } from "@/content/obras";
+import { getObras } from "@/content/cms/obras";
 import { ObraCard } from "@/components/marketing/ObraCard";
 import { GhostLinkButton } from "@/components/ui/Button";
 import { buildWhatsappUrl } from "@/lib/whatsapp";
 import { Reveal } from "@/components/marketing/Reveal";
 
-export function Obras() {
-  const obras = getObras();
+export async function Obras() {
+  const obras = await getObras();
 
   return (
     <section id="obras" className="section-espresso grain">
